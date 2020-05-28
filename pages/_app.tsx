@@ -7,15 +7,8 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <Container>
       <Head>
-        <link
-          href="https://fonts.googleapis.com/css?family=Montserrat"
-          rel="stylesheet"
-          key="google-font-montserrat"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap"
-          rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=La+Belle+Aurore" rel="stylesheet" />
       </Head>
 
       <Component {...pageProps} />

@@ -143,12 +143,16 @@ const allServices = [
 
 const skills = [
   {
+    title: "HTML5/CSS3",
+    rating: "90%",
+  },
+  {
     title: "JavaScript",
-    rating: "80%",
+    rating: "90%",
   },
   {
     title: "Typescript",
-    rating: "80%",
+    rating: "85%",
   },
   {
     title: "React.js",
@@ -156,15 +160,15 @@ const skills = [
   },
   {
     title: "Node.js",
-    rating: "70%",
+    rating: "80%",
   },
   {
     title: "React Native",
-    rating: "90%",
+    rating: "95%",
   },
   {
     title: "Firebase/Firestore",
-    rating: "90%",
+    rating: "95%",
   },
   {
     title: "MongoDB",
@@ -172,11 +176,39 @@ const skills = [
   },
   {
     title: "MySql/PostgreSql",
-    rating: "90%",
+    rating: "80%",
   },
   {
     title: "ElasticSearch",
+    rating: "80%",
+  },
+  {
+    title: "Amazon S3",
     rating: "90%",
+  },
+  {
+    title: "Amazon DynamoDB",
+    rating: "90%",
+  },
+  {
+    title: "Amazon AppSync",
+    rating: "90%",
+  },
+  {
+    title: "AppCenter",
+    rating: "95%",
+  },
+  {
+    title: "Google App Engine",
+    rating: "70%",
+  },
+  {
+    title: "Heroku",
+    rating: "70%",
+  },
+  {
+    title: "Docker",
+    rating: "65%",
   },
 ];
 

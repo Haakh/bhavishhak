@@ -1,4 +1,5 @@
-$laBelleAurore: "La Belle Aurore";
+// @import url("https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap");
+// $laBelleAurore: "La Belle Aurore", sans-serif;
 
 .container {
   width: 100vw;
@@ -23,14 +24,30 @@ $laBelleAurore: "La Belle Aurore";
     background-color: var(--bg-color);
   }
 
-  .tag {
-    font-family: $laBelleAurore;
-    font-size: 15px;
+  .tagHtml {
+    position: absolute;
+    top: 8%;
+    left: 4%;
   }
   .tagHead {
     position: absolute;
-    top: 10%;
-    left: 10%;
+    top: 13%;
+    left: 8%;
+  }
+  .tagHeadClose {
+    position: absolute;
+    bottom: 15%;
+    left: 8%;
+  }
+  .tagBody {
+    position: absolute;
+    bottom: -10%;
+    left: 8%;
+  }
+  .tagH1 {
+    position: absolute;
+    bottom: -6%;
+    left: 39%;
   }
   .home {
     justify-content: center;
@@ -70,7 +87,7 @@ $laBelleAurore: "La Belle Aurore";
         margin-bottom: 40px;
       }
       .section2 {
-        font-size: 28px;
+        font-size: 25px;
         margin-bottom: 40px;
       }
       .sectionDesc {
@@ -140,12 +157,10 @@ $laBelleAurore: "La Belle Aurore";
       display: flex;
       flex-wrap: wrap;
       width: 70vw;
-      border: 2px solid;
 
       .skillItem {
-        width: 70px;
-        height: 70px;
-        border: 1px solid;
+        width: 13vw;
+        height: 10vh;
       }
     }
   }
@@ -221,51 +236,6 @@ $laBelleAurore: "La Belle Aurore";
   justify-content: center;
   align-items: center;
   width: 100%;
-}
-
-.skillDesc {
-  max-width: 800px;
-  text-align: center;
-}
-
-.skillBox {
-  background-color: #4667de;
-  border-style: solid;
-  border-width: 1px 1px 1px 1px;
-  border-color: #eeeeee;
-  box-shadow: 10px 15px 50px 0px rgba(0, 0, 0, 0);
-  transition: "background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s";
-  margin-top: 10px;
-  margin-bottom: 0px;
-  padding: 10px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  max-width: 800px;
-}
-
-.skillItem {
-  width: 50%;
-  padding: 25px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.progressBarWrapper {
-  background-color: #96abff;
-  border-radius: 4px;
-  overflow: hidden;
-  height: 8px;
-  width: 100%;
-}
-
-.progressBar {
-  position: relative;
-  background-color: #eee;
-  color: #fff;
-  height: 100%;
 }
 
 @media screen and (max-width: 800px) {
@@ -432,4 +402,87 @@ $laBelleAurore: "La Belle Aurore";
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+.progress {
+  $white: #fefefe;
+  $black: #000000;
+  $transitionDuration: 0.3s;
+  $transition: all $transitionDuration ease-in-out;
+
+  .chart {
+    font-size: 1em;
+
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+    backface-visibility: visible;
+  }
+
+  $faceColor: rgba($white, 0.3);
+  $growColor: rgba($white, 0.6);
+
+  .bar {
+    font-size: 0.3em;
+    position: relative;
+    height: 10em;
+
+    transition: $transition;
+    transform: rotateX(60deg) rotateY(0deg);
+    transform-style: preserve-3d;
+
+    .face {
+      font-size: 2em;
+      position: relative;
+      width: 100%;
+      height: 2em;
+      background-color: $faceColor;
+
+      &.sidea,
+      &.sideb {
+        width: 2em;
+      }
+    }
+    .sidea {
+      transform: rotateX(90deg) rotateY(-90deg) translateX(2em) translateY(1em) translateZ(1em);
+      background-color: rgba($white, 0.6);
+    }
+    .sideb {
+      transform: rotateX(90deg) rotateY(-90deg) translateX(4em) translateY(1em) translateZ(-1em);
+      position: absolute;
+      right: 0;
+    }
+    .side0 {
+      box-shadow: -0.5em -1.5em 4em $white;
+      transform: rotateX(90deg) rotateY(0) translateX(0) translateY(1em) translateZ(-1em);
+    }
+    .side1 {
+      transform: rotateX(90deg) rotateY(0) translateX(0) translateY(1em) translateZ(3em);
+    }
+    .top {
+      transform: rotateX(0deg) rotateY(0) translateX(0em) translateY(4em) translateZ(2em);
+    }
+    .floor {
+      box-shadow: 0 0.1em 0.6em rgba(0, 0, 0, 0.3), 0.6em -0.5em 3em rgba(0, 0, 0, 0.3),
+        1em -1em 8em $white;
+      box-shadow: 0em 0em 2em $white;
+    }
+  }
+
+  .growingBar {
+    transition: $transition;
+    background-color: $growColor;
+    width: 90%;
+    height: 2em;
+    box-shadow: -0.5em -1.5em 4em $white;
+    background-color: rgba($white, 0.6);
+    box-shadow: 0em 0em 2em $white;
+  }
+
+  @for $i from 0 to 101 {
+    .bar#{$i} {
+      .growingBar {
+        width: percentage($i/100);
+      }
+    }
+  }
 }

@@ -4,19 +4,46 @@ import { data } from "../data";
 import { FaGithub, FaMedium, FaTwitter, FaLinkedin, FaEnvelope, FaMap } from "react-icons/fa";
 import styles from "./index.module.scss";
 
+const Progress = () => (
+  <div className={styles.progress}>
+    <div style={{ width: 100 }}>
+      <article>
+        <div className={styles.chart}>
+          <div className={[styles.bar, styles.bar50, styles.white].join(" ")}>
+            <div className={[styles.face, styles.top].join(" ")}>
+              <div className={styles.growingBar}></div>
+            </div>
+            <div className={[styles.face, styles.side0].join(" ")}>
+              <div className={styles.growingBar}></div>
+            </div>
+            <div className={[styles.face, styles.floor].join(" ")}>
+              <div className={styles.growingBar}></div>
+            </div>
+            <div className={[styles.face, styles.sidea].join(" ")}></div>
+            <div className={[styles.face, styles.sideb].join(" ")}></div>
+          </div>
+          <div className={[styles.face, styles.side1].join(" ")}></div>
+        </div>
+      </article>
+    </div>
+  </div>
+);
+
 const Skills = () => (
   <div className={styles.skills} id="skills">
     <div className={styles.skillsHeader}>SKILLS</div>
     <div className={styles.skillsDesc}>
-      I'm a Senior Mobile/Web App Developer specializing in front end development. I have experience
-      with all stages of the development cycle for dynamic web/mobile projects. I'm well-versed in
-      numerous technologies including JavaScript, TypeScript and NodeJS. I have a strong background
-      in project management and customer relations.
+      Full Stack JavaScript Developer with ~4 years of experience in software development, I have
+      worked with both service-based and product-based firms. Over time, I has worked in a couple of
+      startups and have experience in working with technologies like React Native, ReactJS, NodeJS,
+      ElasticSearch, etc. I've also developed multiple apps from scratch in various domains like
+      healthcare, retail, transport, employee management, etc.
     </div>
     <div className={styles.skillBox}>
       {data.skills.map((skillItem) => (
         <div className={styles.skillItem} key={skillItem.title}>
           <div>{skillItem.title}</div>
+          <Progress />
         </div>
       ))}
     </div>
@@ -59,14 +86,16 @@ const Contacts = () => (
 
 const Home = () => (
   <div className={styles.home} id="home">
-    <div className={styles.tagHead}>{renderTags("<html>")}</div>
+    <div className={styles.tagHtml}>{renderTags("<html>")}</div>
+    <div className={styles.tagHead}>{renderTags("<head>")}</div>
+    <div className={styles.tagHeadClose}>{renderTags("</head>")}</div>
     <div className={styles.myPic}>
       <img alt="bhavish" className={styles.profilePic} src="/bhavish.jpg" />
     </div>
 
     <div className={styles.myDesc}>
       <div className={styles.section1}>Hello, I'm Bhavish</div>
-      <div className={styles.section2}>Full Stack Developer</div>
+      <div className={styles.section2}>Full Stack Developer | Freelancer</div>
       <p className={styles.sectionDesc}>
         I'm a Full Stack JavaScript Developer. I make cool Mobile Apps and Websites. Check them out
         below.
@@ -103,11 +132,20 @@ const Home = () => (
 
 const AboutMe = () => (
   <div className={styles.aboutMe} id="about">
+    <div className={styles.tagBody}>{renderTags("<body>")}</div>
+    <div className={styles.tagH1}>{renderTags("<h1>")}</div>
     <div className={styles.aboutHeader}>ABOUT ME</div>
     <div className={styles.aboutDesc}>
       I’m a full-stack web/mobile application developer and I have been working in React/React
       Native for 4+ years. I’ve mostly worked with startups and have been freelancing since last 1.5
       years.
+      <br />
+      <br />
+      <br />
+      I'm a Senior Mobile/Web App Developer specializing in front end development. I have experience
+      with all stages of the development cycle for dynamic web/mobile projects. I'm well-versed in
+      numerous technologies including JavaScript, TypeScript and NodeJS. I have a strong background
+      in project management and customer relations.
     </div>
   </div>
 );
@@ -197,7 +235,11 @@ const Projects = () => {
   );
 };
 
-const renderTags = (text) => <div className={styles.tag}>{text}</div>;
+const renderTags = (text) => (
+  <div className="tag" id="tag">
+    {text}
+  </div>
+);
 
 const IndexPage = () => {
   if (typeof window !== "undefined") {
