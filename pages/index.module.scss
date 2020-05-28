@@ -1,0 +1,399 @@
+.container {
+  width: 100vw;
+
+  .background {
+    height: 100vh;
+    z-index: 10;
+  }
+  .headerClass {
+    height: 10vh;
+    backdrop-filter: blur(2px);
+    transition: all 0.2s linear;
+  }
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--bg-color);
+  }
+  .scroll {
+    z-index: 10;
+    background-color: var(--bg-color);
+  }
+
+  .aboutMe {
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+
+    .myPic {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      max-width: 100%;
+
+      .profilePic {
+        width: 400px;
+        border-radius: 50%;
+      }
+    }
+
+    .myDesc {
+      flex: 1;
+      backdrop-filter: blur(1px);
+      border: 3px solid transparent;
+      padding: 20px;
+
+      &:hover {
+        backdrop-filter: blur(4px);
+        transition: all 0.2s linear;
+      }
+
+      .section1 {
+        font-size: 46px;
+        font-weight: 900;
+        line-height: 1em;
+        margin-bottom: 40px;
+      }
+      .section2 {
+        font-size: 28px;
+        margin-bottom: 40px;
+      }
+      .sectionDesc {
+        font-size: 18px;
+        margin-bottom: 40px;
+      }
+      .row {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+      }
+    }
+  }
+
+  .iconContainer {
+    background-color: var(--bg-sec-color);
+    margin-right: 14px;
+    font-size: 22px;
+    padding: 0.6em;
+    border-radius: 50%;
+    cursor: pointer;
+    vertical-align: middle;
+    display: flex;
+
+    &:hover {
+      background-color: var(--bg-hover-color);
+    }
+  }
+  .icon {
+    color: var(--text-color);
+  }
+
+  .theme {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 3px solid;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .firstSection {
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .aboutMe {
+    flex-direction: column;
+  }
+
+  .myPic {
+    margin-top: 10px;
+  }
+
+  .myDesc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0px !important;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .myDesc {
+    margin-right: 50px;
+  }
+}
+
+.techBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.techBox > div {
+  padding: 30px;
+  border: 1px solid #e9e9e9;
+  max-width: 350px;
+}
+
+@media screen and (max-width: 984px) {
+  .techBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .techBox > div {
+    padding: 30px;
+    border: 1px solid #e9e9e9;
+    flex: 1;
+    max-width: 600px;
+  }
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  /* border: 5px solid red; */
+}
+
+@media screen and (max-width: 500px) {
+  .section {
+    padding: 30px 15px;
+  }
+}
+
+.centerText {
+  text-align: left;
+}
+
+.secondSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.skillDesc {
+  max-width: 800px;
+  text-align: center;
+}
+
+.skillBox {
+  background-color: #4667de;
+  border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  border-color: #eeeeee;
+  box-shadow: 10px 15px 50px 0px rgba(0, 0, 0, 0);
+  transition: "background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s";
+  margin-top: 10px;
+  margin-bottom: 0px;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 800px;
+}
+
+.skillItem {
+  width: 50%;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.progressBarWrapper {
+  background-color: #96abff;
+  border-radius: 4px;
+  overflow: hidden;
+  height: 8px;
+  width: 100%;
+}
+
+.progressBar {
+  position: relative;
+  background-color: #eee;
+  color: #fff;
+  height: 100%;
+}
+
+@media screen and (max-width: 800px) {
+  .skillBox {
+    flex-direction: column;
+  }
+
+  .skillItem {
+    width: 100%;
+  }
+}
+
+.skillImg {
+  width: 35px;
+  height: 42px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.experienceContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.experienceItem {
+  width: 45%;
+  max-width: 800px;
+}
+
+.expBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f5ff;
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 10px 15px 50px 0px rgba(0, 0, 0, 0);
+  transition: "background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s";
+  margin-bottom: 0px;
+  padding: 40px 40px 40px 40px;
+}
+
+.expGap {
+  margin-top: 150px;
+}
+
+.expImage {
+  width: 200px;
+  resize: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.expDuration {
+  color: #4667fa;
+  margin-top: -10px;
+}
+
+.projectsRow {
+  display: grid;
+  grid-template-columns: 600px 600px;
+}
+
+.projectsBox {
+  background-color: #f3f5ff;
+  border-radius: 4px;
+  box-shadow: 10px 15px 50px 0px rgba(0, 0, 0, 0);
+  transition: "background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s";
+  margin: 10px;
+  overflow: hidden;
+}
+
+.projectImg {
+  width: 100%;
+  resize: contain;
+  height: 400px;
+}
+
+.projDesc {
+  padding: 15px 40px 40px 40px;
+}
+
+@media screen and (max-width: 1200px) {
+  .experienceContainer {
+    flex-direction: column;
+  }
+
+  .experienceItem {
+    width: 100%;
+  }
+
+  .expGap {
+    margin-top: 20px;
+  }
+
+  .projectsBox {
+    margin: 5px;
+  }
+
+  .projectsRow {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+  }
+
+  .projectImg {
+    height: 40%;
+  }
+}
+
+.boxTitle {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+}
+.boxSubTitle {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  margin-top: -10px;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: row;
+}
+
+.contactInfo > div {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid #000; */
+}
+
+.contactTitle {
+  font-weight: bold;
+  font-size: 15px;
+}
+.contactDesc {
+  font-size: 15px;
+}
+
+@media screen and (max-width: 635px) {
+  .contactInfo {
+    flex-direction: column;
+  }
+
+  .contactInfo > div {
+    margin-top: 20px;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

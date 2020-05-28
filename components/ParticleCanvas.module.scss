@@ -1,0 +1,31 @@
+.container {
+  width: 100vw;
+  height: 90vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.c {
+  position: absolute;
+  border-radius: 50%;
+}
+
+@for $i from 1 through 200 {
+  @keyframes particle-animation-#{$i} {
+    100% {
+      transform: translate3d((random(100) * 1vw), (random(100) * 1vh), (random(100) * 1px));
+    }
+  }
+
+  .c:nth-child(#{$i}) {
+    animation: particle-animation-#{$i} 200s infinite;
+    $size: random(3) + 1 + px;
+    height: $size;
+    width: $size;
+    animation-delay: -$i * 0.2s;
+    transform: translate3d((random(100) * 1vw), (random(100) * 1vh), (random(100) * 1px));
+    background: var(--text-color);
+  }
+}
