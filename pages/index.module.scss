@@ -1,3 +1,5 @@
+$laBelleAurore: "La Belle Aurore";
+
 .container {
   width: 100vw;
 
@@ -21,7 +23,16 @@
     background-color: var(--bg-color);
   }
 
-  .aboutMe {
+  .tag {
+    font-family: $laBelleAurore;
+    font-size: 15px;
+  }
+  .tagHead {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+  }
+  .home {
     justify-content: center;
     align-items: center;
     height: 90vh;
@@ -48,7 +59,7 @@
       padding: 20px;
 
       &:hover {
-        backdrop-filter: blur(4px);
+        backdrop-filter: blur(3px);
         transition: all 0.2s linear;
       }
 
@@ -72,31 +83,71 @@
         align-items: flex-start;
       }
     }
-  }
+    .iconContainer {
+      background-color: var(--bg-sec-color);
+      margin-right: 14px;
+      font-size: 22px;
+      padding: 0.6em;
+      border-radius: 50%;
+      cursor: pointer;
+      vertical-align: middle;
+      display: flex;
 
-  .iconContainer {
-    background-color: var(--bg-sec-color);
-    margin-right: 14px;
-    font-size: 22px;
-    padding: 0.6em;
-    border-radius: 50%;
-    cursor: pointer;
-    vertical-align: middle;
-    display: flex;
-
-    &:hover {
-      background-color: var(--bg-hover-color);
+      &:hover {
+        background-color: var(--bg-hover-color);
+      }
+    }
+    .icon {
+      color: var(--text-color);
     }
   }
-  .icon {
-    color: var(--text-color);
+
+  .aboutMe {
+    background-color: var(--about-me);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .aboutHeader {
+      font-size: 40px;
+      margin-bottom: 40px;
+    }
+    .aboutDesc {
+      font-size: 22px;
+      text-align: center;
+      padding: 0px 100px;
+    }
   }
 
-  .theme {
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: 3px solid;
+  .skills {
+    background-color: var(--skills);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .skillsHeader {
+      font-size: 40px;
+      margin-bottom: 40px;
+    }
+    .skillsDesc {
+      font-size: 22px;
+      text-align: center;
+      padding: 0px 100px;
+    }
+    .skillBox {
+      display: flex;
+      flex-wrap: wrap;
+      width: 70vw;
+      border: 2px solid;
+
+      .skillItem {
+        width: 70px;
+        height: 70px;
+        border: 1px solid;
+      }
+    }
   }
 }
 
@@ -157,21 +208,6 @@
     border: 1px solid #e9e9e9;
     flex: 1;
     max-width: 600px;
-  }
-}
-
-.section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 50px;
-  /* border: 5px solid red; */
-}
-
-@media screen and (max-width: 500px) {
-  .section {
-    padding: 30px 15px;
   }
 }
 

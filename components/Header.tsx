@@ -45,31 +45,27 @@ const Header = () => {
           {/* <FaBars /> */}
         </a>
         <div className={styles.item}>
-          <a href="/">About Me</a>
+          <a href="#about">ABOUT</a>
           <Vector className={styles.itemUnderline} />
         </div>
         <div className={styles.item}>
-          <a href="#skills">Skills</a>
+          <a href="#skills">SKILLS</a>
           <Vector className={styles.itemUnderline} />
         </div>
         <div className={styles.item}>
-          <a href="#services">Services</a>
+          <a href="#projects">PROJECTS</a>
           <Vector className={styles.itemUnderline} />
         </div>
         <div className={styles.item}>
-          <a href="#experiences">Experience</a>
+          <a href="#experiences">EXPERIENCE</a>
           <Vector className={styles.itemUnderline} />
         </div>
         <div className={styles.item}>
-          <a href="#projects">Projects</a>
+          <a href="#education">BLOGS</a>
           <Vector className={styles.itemUnderline} />
         </div>
         <div className={styles.item}>
-          <a href="#education">Education</a>
-          <Vector className={styles.itemUnderline} />
-        </div>
-        <div className={styles.item}>
-          <a href="#contacts">Contacts</a>
+          <a href="#contacts">CONTACTS</a>
           <Vector className={styles.itemUnderline} />
         </div>
       </div>

@@ -13,7 +13,7 @@ const education = [
     duration: `2009-2011`,
     desc: `Had Maths, Science and Computers as my majors during the period 2009-2011.`,
   },
-]
+];
 
 const experiences = [
   {
@@ -58,7 +58,7 @@ const experiences = [
     desc: `Diagnosed and troubleshooted coding problems and helped customers install applications and programs to understand the course properly. 
     Resolved multiple issues, configured operating systems and remote desktop connections to provide immediate support.`,
   },
-]
+];
 
 const projects = [
   {
@@ -77,8 +77,7 @@ const projects = [
   {
     title: "Medlife",
     image: "medlife",
-    link:
-      "https://play.google.com/store/apps/details?id=com.medlife.customer&hl=en",
+    link: "https://play.google.com/store/apps/details?id=com.medlife.customer&hl=en",
     desc: `A mobile app for ordering medicines, getting appointments and prescriptions from doctors.
     `,
   },
@@ -107,7 +106,7 @@ const projects = [
     image: "messaging",
     desc: `A one-to-one, realtime WhatsApp like chat app, uses React-Native, Mobx, Feathers.js, MongoDB`,
   },
-]
+];
 
 const allServices = [
   {
@@ -140,7 +139,7 @@ const allServices = [
     title: "TDD",
     desc: `Snapshot, unit and integration tests for mobile/web applications to ensure lesser bugs and more stability leading to good user experience.`,
   },
-]
+];
 
 const skills = [
   {
@@ -148,26 +147,38 @@ const skills = [
     rating: "80%",
   },
   {
-    title: "React",
+    title: "Typescript",
+    rating: "80%",
+  },
+  {
+    title: "React.js",
     rating: "90%",
   },
   {
-    title: "Node",
+    title: "Node.js",
     rating: "70%",
-  },
-  {
-    title: "TypeScript",
-    rating: "85%",
   },
   {
     title: "React Native",
     rating: "90%",
   },
   {
-    title: "Firebase",
+    title: "Firebase/Firestore",
     rating: "90%",
   },
-]
+  {
+    title: "MongoDB",
+    rating: "90%",
+  },
+  {
+    title: "MySql/PostgreSql",
+    rating: "90%",
+  },
+  {
+    title: "ElasticSearch",
+    rating: "90%",
+  },
+];
 
 export const data = {
   skills,
@@ -175,4 +186,4 @@ export const data = {
   projects,
   education,
   experiences,
-}
+};

@@ -17,10 +17,6 @@
       text-decoration: none !important;
       font-size: 17px;
       background-image: none !important;
-      font-weight: bold;
-    }
-    a:hover {
-      color: var(--text-color);
     }
     a.active {
       background-color: #4caf50;
@@ -56,16 +52,23 @@
     }
   }
 
-  .item:hover .itemUnderline path {
-    display: inline-block;
-    stroke-dasharray: 300;
-    stroke-dashoffset: 40;
-    animation: dash 1s linear alternate;
+  .item:hover {
+    a {
+      color: var(--text-color);
+      font-weight: bold;
+    }
+    .itemUnderline path {
+      display: inline-block;
+      stroke-dasharray: 300;
+      stroke-dashoffset: 40;
+      animation: dash 1s linear alternate;
+    }
   }
 
   .toggleMode {
     font-size: 35px;
     padding: 5px 45px 0px 5px;
+    cursor: pointer;
   }
 }
 

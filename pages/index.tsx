@@ -5,76 +5,23 @@ import { FaGithub, FaMedium, FaTwitter, FaLinkedin, FaEnvelope, FaMap } from "re
 import styles from "./index.module.scss";
 
 const Skills = () => (
-  <div className="section" id="skills">
-    <div className="secondSection">
-      <SectionTitle
-        title="Professional Skills"
-        desc={`I'm a Senior Mobile/Web App Developer specializing in front end
-          development. I have experience with all stages of the development cycle
-          for dynamic web/mobile projects. I'm well-versed in numerous
-          technologies including JavaScript, TypeScript and NodeJS. I have a
-          strong background in project management and customer relations.
-      `}
-      />
-      <div className="skillBox">
-        <div className="skillItem">
-          {data.skills.slice(0, 3).map((skillItem) => (
-            <div className="column" style={{ width: "100%", margin: "10px" }} key={skillItem.title}>
-              <span style={{ color: "#fff" }}>{skillItem.title}</span>
-              <div className="progressBarWrapper">
-                <div className="progressBar" style={{ width: skillItem.rating }} />
-              </div>
-            </div>
-          ))}
+  <div className={styles.skills} id="skills">
+    <div className={styles.skillsHeader}>SKILLS</div>
+    <div className={styles.skillsDesc}>
+      I'm a Senior Mobile/Web App Developer specializing in front end development. I have experience
+      with all stages of the development cycle for dynamic web/mobile projects. I'm well-versed in
+      numerous technologies including JavaScript, TypeScript and NodeJS. I have a strong background
+      in project management and customer relations.
+    </div>
+    <div className={styles.skillBox}>
+      {data.skills.map((skillItem) => (
+        <div className={styles.skillItem} key={skillItem.title}>
+          <div>{skillItem.title}</div>
         </div>
-        <div className="skillItem">
-          {data.skills.slice(3, 6).map((skillItem) => (
-            <div className="column" style={{ width: "100%", margin: "10px" }} key={skillItem.title}>
-              <span style={{ color: "#fff" }}>{skillItem.title}</span>
-              <div className="progressBarWrapper">
-                <div className="progressBar" style={{ width: skillItem.rating }} />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      ))}
     </div>
   </div>
 );
-
-const Education = () => {
-  const { education } = data;
-  return (
-    <div className="section" id="education">
-      <SectionTitle
-        title="Education"
-        desc={`I'm a Computer Science graduate and possess a bachelors degree in the
-        field of Engineering specializing in Information Technology. I had
-        Science and Computers as majors in High School.
-      `}
-      />
-      <div className="experienceContainer">
-        <div className="experienceItem">
-          <div className="expBox">
-            <h3>{education[0].degree}</h3>
-            <p className="expDuration">({education[0].duration})</p>
-            <h4>{education[0].institution}</h4>
-            <h4 className="boxSubTitle">{education[0].location}</h4>
-          </div>
-        </div>
-        <div style={{ width: "10%" }} />
-        <div className="experienceItem expGap">
-          <div className="expBox">
-            <h3>{education[1].degree}</h3>
-            <p className="expDuration">({education[1].duration})</p>
-            <h4>{education[1].institution}</h4>
-            <h4 className="boxSubTitle">{education[1].location}</h4>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 const Contacts = () => (
   <div className="section" style={{ backgroundColor: "#f3f5ff", marginTop: "60px" }} id="contacts">
@@ -110,8 +57,9 @@ const Contacts = () => (
   </div>
 );
 
-const AboutMe = () => (
-  <div className={styles.aboutMe}>
+const Home = () => (
+  <div className={styles.home} id="home">
+    <div className={styles.tagHead}>{renderTags("<html>")}</div>
     <div className={styles.myPic}>
       <img alt="bhavish" className={styles.profilePic} src="/bhavish.jpg" />
     </div>
@@ -126,29 +74,40 @@ const AboutMe = () => (
       <div className={styles.row}>
         <div
           className={styles.iconContainer}
-          onClick={() => window.open("https://www.linkedin.com/in/shruti-shankar-3314b562/")}
+          onClick={() => window.open("https://www.linkedin.com/in/bhavishhak/")}
         >
           <FaLinkedin className={styles.icon} />
         </div>
         <div
           className={styles.iconContainer}
-          onClick={() => window.open("https://github.com/shrutishankar28")}
+          onClick={() => window.open("https://github.com/Haakh")}
         >
           <FaGithub />
         </div>
         <div
           className={styles.iconContainer}
-          onClick={() => window.open("https://medium.com/@shrutishankar_57908")}
+          onClick={() => window.open("https://medium.com/@bhavishhak")}
         >
           <FaMedium />
         </div>
         <div
           className={styles.iconContainer}
-          onClick={() => window.open("https://twitter.com/shrutishankar28")}
+          onClick={() => window.open("https://twitter.com/BhavishHak")}
         >
           <FaTwitter />
         </div>
       </div>
+    </div>
+  </div>
+);
+
+const AboutMe = () => (
+  <div className={styles.aboutMe} id="about">
+    <div className={styles.aboutHeader}>ABOUT ME</div>
+    <div className={styles.aboutDesc}>
+      I’m a full-stack web/mobile application developer and I have been working in React/React
+      Native for 4+ years. I’ve mostly worked with startups and have been freelancing since last 1.5
+      years.
     </div>
   </div>
 );
@@ -238,36 +197,7 @@ const Projects = () => {
   );
 };
 
-const Services = () => (
-  <div className={styles.section} style={{ backgroundColor: "#f3f5ff" }} id="services">
-    <SectionTitle
-      title="What I do"
-      desc={`I’m a full-stack web/mobile application developer and I have been
-          working in React/React Native for 4+ years. I’ve mostly worked with
-          startups and have been freelancing since last 1.5 years.
-        `}
-    />
-    <div className={styles.techBox}>
-      {data.allServices.map((service) => (
-        <div className={styles.column} key={service.imgSrc}>
-          {/* <Img
-              fluid={imagesData[service.imgSrc].childImageSharp.fluid}
-              alt={service.imgSrc}
-              fadeIn={true}
-              style={{
-                width: "50px",
-                height: "50px",
-                marginBottom: "20px",
-              }}
-              objectFit="contain"
-            /> */}
-          <p className={styles.boxTitle}>{service.title}</p>
-          {service.desc}
-        </div>
-      ))}
-    </div>
-  </div>
-);
+const renderTags = (text) => <div className={styles.tag}>{text}</div>;
 
 const IndexPage = () => {
   if (typeof window !== "undefined") {
@@ -292,19 +222,19 @@ const IndexPage = () => {
       {/* <SEO title="bhavish" /> */}
       <ParticleCanvas />
       <div className={styles.background}>
-        <AboutMe />
+        <Home />
         <div id="header" className={styles.headerClass}>
           <Header />
         </div>
       </div>
       <div className={styles.scroll}>
+        <AboutMe />
         <Skills />
-        <Services />
-        <Experiences />
         <Projects />
-        <Education />
+        <Experiences />
         <Contacts />
       </div>
+      <div>© Bhavish Hak. All Rights Reserved</div>
     </div>
   );
 };
