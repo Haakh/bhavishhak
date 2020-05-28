@@ -294,7 +294,7 @@ const IndexPage = () => {
       <div className={styles.background}>
         <AboutMe />
         <div id="header" className={styles.headerClass}>
-          <Header siteTitle={"data.site.siteMetadata.title"} />
+          <Header />
         </div>
       </div>
       <div className={styles.scroll}>
