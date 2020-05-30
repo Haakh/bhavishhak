@@ -4,8 +4,8 @@ import styles from "./ParticleCanvas.module.scss";
 const ParticleCanvas = () => {
   return (
     <div className={styles.container}>
-      {[...Array(200)].map(() => (
-        <div className={styles.c}></div>
+      {[...Array(200)].map((i, index) => (
+        <div className={styles.c} key={index}></div>
       ))}
     </div>
   );

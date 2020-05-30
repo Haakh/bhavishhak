@@ -1,10 +1,11 @@
 .container {
-  width: 100vw;
-  height: 90vh;
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   z-index: -1;
+  background-image: linear-gradient(rgb(41, 42, 50), rgb(155, 167, 255));
 }
 
 .c {
@@ -27,5 +28,19 @@
     animation-delay: -$i * 0.2s;
     transform: translate3d((random(100) * 1vw), (random(100) * 1vh), (random(100) * 1px));
     background: var(--text-color);
+  }
+
+  @media screen and (max-width: 700px) {
+    @keyframes particle-animation-mobile-#{$i} {
+      100% {
+        transform: translate3d((random(400) * 1px), (random(800) * 1px), (random(100) * 1px));
+      }
+    }
+
+    .c:nth-child(#{$i}) {
+      animation: particle-animation-mobile-#{$i} 200s infinite;
+      animation-delay: -$i * 0.2s;
+      transform: translate3d((random(800) * 1px), (random(1000) * 1px), (random(100) * 1px));
+    }
   }
 }

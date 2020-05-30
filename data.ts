@@ -1,50 +1,54 @@
-const experiences = [
+interface ExperienceType {
+  company: string;
+  designation: string;
+  duration: string;
+  link?: string;
+  logoImage: string;
+  desc: string;
+}
+const experiences: ExperienceType[] = [
   {
     company: "Freelance",
-    logoImage: "freelancer",
-    link: "https://geekyants.com/",
     designation: "Freelancer - Web/Mobile App Developer",
     duration: "Feb 2019 - Present",
+    logoImage: "freelancer",
     desc: `Self-employed, work for myself, rather than for a company.
      I take on contract work for companies and organizations usually on hourly basis (can be fixed price at times), based all across the globe. Have developed and delivered multiple mobile and web applications.`,
   },
   {
-    company: "Geekyants",
-    duration: "Nov 2016 - Feb 2019",
-    designation: "Full Stack Developer",
-    logoImage: "geekyants",
-    link: "https://geekyants.com/",
-    desc: `Worked on developing mobile and web applications with a team of
-    developers and delivered quality applications. Adjusted software parameters to boost performance and incorporate
-    new features. Maintained existing applications, designed and delivered new
-    applications as well.`,
-  },
-  {
     company: "Gsynergy",
     designation: "Full Stack Developer",
-    duration: "Feb 2019 - April 2020",
+    duration: "Feb 2019 - Apr 2020",
     logoImage: "gsynergyicon",
     link: "https://www.linkedin.com/company/gsynergy/",
-    desc: `Worked as a freelance contractor. Delivered performance-driven and user-centric mobile application that met all
-    business requirements.
-    Collaborated on all stages of systems development lifecycle, from
-    requirement gathering to production releases`,
+    desc: `Worked as a freelance contractor. Lead a team of developers, Delivered performance-driven and user-centric mobile application that met all
+    business requirements.`,
   },
   {
-    company: "Edureka",
-    duration: "Aug 2016 - Oct 2016",
-
-    designation: "Tech Support Engineer",
-    logoImage: "edureka",
-    link: "https://www.edureka.co/",
-    desc: `Diagnosed and troubleshooted coding problems and helped customers install applications and programs to understand the course properly. 
-    Resolved multiple issues, configured operating systms and remote desktop connections to provide immediate support.`,
+    company: "DockTalk",
+    designation: "Full Stack Developer",
+    duration: "March 2018 - Apr 2019",
+    logoImage: "doctalk",
+    link: "https://www.crunchbase.com/organization/doctalk",
+    desc: `Developed backend in ElasticSearch Stack deployed on AWS ELK and Firebase/Firestore and NodeJS hosted on google Cloud.
+    Developed 3 React Native Apps from scratch for appointment scheduling, business reviews management.
+    Developed an internal Employee management Web App to manage employees(Sales Managers) daily tasks integrated with google calendar.`,
+  },
+  {
+    company: "Geekyants",
+    designation: "Full Stack Developer",
+    duration: "2016 - Mar 2018",
+    logoImage: "geekyants",
+    link: "https://geekyants.com/",
+    desc: `Worked on designed & developing mobile and web applications Full Stack and lead a team of
+    developers and delivered quality applications. Adjusted software parameters to boost performance and incorporate
+    new features.`,
   },
 ];
 
 interface ProjectType {
   title: string;
-  image: string;
+  image?: string;
   link?: string;
   linkAndroid?: string;
   tech: string[];
@@ -77,7 +81,7 @@ const projects: ProjectType[] = [
   },
   {
     title: "Pulse CX",
-    image: "/cx.jpg",
+    image: "/pulse.jpg",
     link: "https://apps.apple.com/in/app/pulse-cx/id1446431879",
     linkAndroid: "https://play.google.com/store/apps/details?id=com.getdoctalk.reviewapp",
     tech: ["React Native", "RxJs", "NodeJS", "Firestore", "TypeScript"],
@@ -102,8 +106,22 @@ const projects: ProjectType[] = [
     `,
   },
   {
+    title: "Wuji - Taxi App",
+    image: "/wuji.jpg",
+    link: "https://play.google.com/store/apps/details?id=com.wuji",
+    tech: ["React Native", "Redux", "NodeJS", "Firestore", "Google Maps API"],
+    desc: `An Uber-like taxi app with both rider and driver side with Geo-Spatial Search for nearby Drivers.`,
+    work: `- Worked as a Sole Developer and built Backend and Frontend of the app
+    - Built a feature that allows both rider and driver to use the app and an option to switch between them
+    - Built a feature that shows the users about the real-time location of nearby drivers, to add a vehicle, to share promo code, and to rate a driver
+    - Developed the payment options with Stripe API
+    - Used Geo Spatial queries to detect nearby drivers and assign a driver to a rider based on a custom algorithm
+    - Used Google Maps API to show map on the app and draw polygons to show driver locations, draw lines to show route path from rider to driver etc
+    `,
+  },
+  {
     title: "Nomu Kids",
-    image: "/scheduler.jpg",
+    image: "/nomukids.jpg",
     link: "https://nomukids.com/",
     tech: ["ReactJS, JavaScript, Context-Hooks"],
     desc: `Nomu Kids is a home-based workout/ teaching for kids.`,
@@ -115,7 +133,6 @@ const projects: ProjectType[] = [
   },
   {
     title: "Employee Management Web App",
-    image: "/scheduler.jpg",
     tech: ["ReactJS", "NodeJS", "TypeScript", "Firestore"],
     desc: `It is an internal employee management web application.`,
     work: `- Developed the web app from scratch to managing Sales Manager's daily tasks
@@ -136,20 +153,6 @@ const projects: ProjectType[] = [
     `,
   },
   {
-    title: "Wuji - Taxi App",
-    image: "/wuji.jpg",
-    link: "https://play.google.com/store/apps/details?id=com.wuji",
-    tech: ["React Native", "Redux", "NodeJS", "Firestore", "Google Maps API"],
-    desc: `An Uber-like taxi app with both rider and driver side with Geo-Spatial Search for nearby Drivers.`,
-    work: `- Worked as a Sole Developer and built Backend and Frontend of the app
-    - Built a feature that allows both rider and driver to use the app and an option to switch between them
-    - Built a feature that shows the users about the real-time location of nearby drivers, to add a vehicle, to share promo code, and to rate a driver
-    - Developed the payment options with Stripe API
-    - Used Geo Spatial queries to detect nearby drivers and assign a driver to a rider based on a custom algorithm
-    - Used Google Maps API to show map on the app and draw polygons to show driver locations, draw lines to show route path from rider to driver etc
-    `,
-  },
-  {
     title: "Pixifi",
     image: "/pixifi.jpg",
     link: "https://apps.apple.com/in/app/pixifi-mobile/id1480772574",
@@ -160,7 +163,6 @@ const projects: ProjectType[] = [
   },
   {
     title: "NPM Chat Package",
-    image: "/npmchat.jpg",
     link: "https://www.npmjs.com/package/geek-chat",
     tech: ["React Native", "Redux", "React Navigation"],
     desc: `Pixifi is a CRM application for Photographers.`,
@@ -168,7 +170,6 @@ const projects: ProjectType[] = [
   },
   {
     title: "Foode",
-    image: "/foode,jpg",
     tech: ["React Native", "Redux", "Firebase"],
     desc: `A restaurant discovery and rating app that helps to find top restaurants nearby you, share your experience by posting feeds, follow/unfollow users coupled with one-to-one chat feature.`,
     work: `- Worked as a Developer with a team of 3 and built the Frontend and Backend of the app`,

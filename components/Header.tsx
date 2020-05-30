@@ -37,7 +37,6 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.topnav}>
         <a
-          href="javascript:void(0);"
           role="button"
           className={[styles.icon, darkMode ? styles.item : styles.itemDark].join(" ")}
           // onClick={() => addResponsiveness()}
