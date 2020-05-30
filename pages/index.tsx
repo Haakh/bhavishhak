@@ -3,49 +3,27 @@ import { Header, SectionTitle, ParticleCanvas } from "components/index";
 import { data } from "../data";
 import { FaGithub, FaMedium, FaTwitter, FaLinkedin, FaEnvelope, FaMap } from "react-icons/fa";
 import styles from "./index.module.scss";
+import Chart from "chart.js";
 
-const Progress = () => (
+// svg image width="1212" height="704"
+
+const chartData = {
+  datasets: [
+    {
+      data: [50, 30, 20],
+      fill: "origin",
+      backgroundColor: ["rgba(0,0,255,0.5)", "blue", "green"],
+    },
+  ],
+  labels: ["FrontEnd", "Backend", "Designing"],
+};
+
+const Progress = ({ skill }) => (
   <div className={styles.progress}>
-    <div style={{ width: 100 }}>
-      <article>
-        <div className={styles.chart}>
-          <div className={[styles.bar, styles.bar50, styles.white].join(" ")}>
-            <div className={[styles.face, styles.top].join(" ")}>
-              <div className={styles.growingBar}></div>
-            </div>
-            <div className={[styles.face, styles.side0].join(" ")}>
-              <div className={styles.growingBar}></div>
-            </div>
-            <div className={[styles.face, styles.floor].join(" ")}>
-              <div className={styles.growingBar}></div>
-            </div>
-            <div className={[styles.face, styles.sidea].join(" ")}></div>
-            <div className={[styles.face, styles.sideb].join(" ")}></div>
-          </div>
-          <div className={[styles.face, styles.side1].join(" ")}></div>
-        </div>
-      </article>
-    </div>
-  </div>
-);
-
-const Skills = () => (
-  <div className={styles.skills} id="skills">
-    <div className={styles.skillsHeader}>SKILLS</div>
-    <div className={styles.skillsDesc}>
-      Full Stack JavaScript Developer with ~4 years of experience in software development, I have
-      worked with both service-based and product-based firms. Over time, I has worked in a couple of
-      startups and have experience in working with technologies like React Native, ReactJS, NodeJS,
-      ElasticSearch, etc. I've also developed multiple apps from scratch in various domains like
-      healthcare, retail, transport, employee management, etc.
-    </div>
-    <div className={styles.skillBox}>
-      {data.skills.map((skillItem) => (
-        <div className={styles.skillItem} key={skillItem.title}>
-          <div>{skillItem.title}</div>
-          <Progress />
-        </div>
-      ))}
+    <div className={styles.skillName}>{skill.title}</div>
+    <div className={styles.tagContainer}>
+      <div className={[styles.skillsTag, styles[`html${skill.rating}`]].join(" ")}></div>
+      <div className={styles.skillPercent}>{skill.rating}%</div>
     </div>
   </div>
 );
@@ -134,8 +112,8 @@ const AboutMe = () => (
   <div className={styles.aboutMe} id="about">
     <div className={styles.tagBody}>{renderTags("<body>")}</div>
     <div className={styles.tagH1}>{renderTags("<h1>")}</div>
-    <div className={styles.aboutHeader}>ABOUT ME</div>
-    <div className={styles.aboutDesc}>
+    <div className={styles.sectionHeader}>ABOUT ME</div>
+    <div className={styles.sectionDesc}>
       I’m a full-stack web/mobile application developer and I have been working in React/React
       Native for 4+ years. I’ve mostly worked with startups and have been freelancing since last 1.5
       years.
@@ -146,6 +124,31 @@ const AboutMe = () => (
       with all stages of the development cycle for dynamic web/mobile projects. I'm well-versed in
       numerous technologies including JavaScript, TypeScript and NodeJS. I have a strong background
       in project management and customer relations.
+    </div>
+    <div className={styles.skillsDesc}>
+      Full Stack JavaScript Developer with ~4 years of experience in software development, I have
+      worked with both service-based and product-based firms. Over time, I has worked in a couple of
+      startups and have experience in working with technologies like React Native, ReactJS, NodeJS,
+      ElasticSearch, etc. I've also developed multiple apps from scratch in various domains like
+      healthcare, retail, transport, employee management, etc.
+    </div>
+    <div className={styles.skillsDesc}>
+      Full Stack JavaScript Developer with ~4 years of experience in software development, I have
+      worked with both service-based and product-based firms. Over time, I has worked in a couple of
+      startups and have experience in working with technologies like React Native, ReactJS, NodeJS,
+      ElasticSearch, etc. I've also developed multiple apps from scratch in various domains like
+      healthcare, retail, transport, employee management, etc.
+    </div>
+    <div className={styles.sectionHeader}>SKILLS</div>
+    <div className={styles.skillBox}>
+      <div className={styles.skillChart}>
+        <canvas id="myChart" width="100" height="100"></canvas>
+      </div>
+      <div className={styles.skillProgress}>
+        {data.skills.map((skillItem) => (
+          <Progress skill={skillItem} key={skillItem.title} />
+        ))}
+      </div>
     </div>
   </div>
 );
@@ -201,25 +204,17 @@ const Experiences = () => {
 const Projects = () => {
   const { projects } = data;
   return (
-    <div className={styles.section} id="projects">
-      <SectionTitle
-        title="Projects"
-        desc={`I have designed, developed and deployed multiple mobile applications and
-        websites over a period of 4 years. I have contributed in both front-end
-        as well as back-end development. A few of them are in production. The
-        links are attached with the project description below:
-      `}
-      />
+    <div className={styles.projects} id="projects">
+      <div className={styles.sectionHeader}>PROJECTS</div>
+      <div className={styles.sectionDesc}>
+        I have designed, developed and deployed multiple mobile applications and websites over a
+        period of 4 years. I have contributed in both front-end as well as back-end development. A
+        few of them are in production. The links are attached with the project description below:
+      </div>
       <div className={styles.projectsRow}>
-        {projects.map((item) => (
+        {projects.slice(0, 4).map((item) => (
           <div className={styles.projectsBox} key={item.image}>
-            {/* <Img
-              fadeIn={true}
-              alt={item.image}
-              objectFit="contain"
-              className={styles.projectImg}
-              fluid={imagesData[item.image].childImageSharp.fluid}
-            /> */}
+            <img src={item.image} className={styles.projectImg} />
             <div
               className={styles.projDesc}
               style={{ cursor: item.link ? "pointer" : undefined }}
@@ -243,6 +238,13 @@ const renderTags = (text) => (
 
 const IndexPage = () => {
   if (typeof window !== "undefined") {
+    var ctx = document.getElementById("myChart");
+    var myChart = new Chart(ctx, {
+      type: "pie",
+      data: chartData,
+      options: {},
+    });
+
     window.onscroll = function () {
       myFunction();
     };
@@ -271,7 +273,6 @@ const IndexPage = () => {
       </div>
       <div className={styles.scroll}>
         <AboutMe />
-        <Skills />
         <Projects />
         <Experiences />
         <Contacts />

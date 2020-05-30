@@ -1,9 +1,20 @@
-// @import url("https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap");
-// $laBelleAurore: "La Belle Aurore", sans-serif;
-
 .container {
   width: 100vw;
 
+  .respImg {
+    width: 100%;
+    height: auto;
+  }
+  .sectionHeader {
+    font-size: 40px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+  .sectionDesc {
+    font-size: 22px;
+    text-align: center;
+    padding: 0px 100px;
+  }
   .background {
     height: 100vh;
     z-index: 10;
@@ -126,28 +137,6 @@
     flex-direction: column;
     align-items: center;
 
-    .aboutHeader {
-      font-size: 40px;
-      margin-bottom: 40px;
-    }
-    .aboutDesc {
-      font-size: 22px;
-      text-align: center;
-      padding: 0px 100px;
-    }
-  }
-
-  .skills {
-    background-color: var(--skills);
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .skillsHeader {
-      font-size: 40px;
-      margin-bottom: 40px;
-    }
     .skillsDesc {
       font-size: 22px;
       text-align: center;
@@ -155,13 +144,96 @@
     }
     .skillBox {
       display: flex;
-      flex-wrap: wrap;
-      width: 70vw;
+      width: 80vw;
+      justify-content: center;
+      align-items: center;
 
-      .skillItem {
-        width: 13vw;
-        height: 10vh;
+      .skillChart {
+        width: 35%;
+        height: 35%;
       }
+      .skillProgress {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+      }
+    }
+    .progress {
+      width: 80%;
+      height: 30px;
+      background-color: #ddd;
+      display: flex;
+      margin: 2px 5px;
+
+      .skillName {
+        width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .tagContainer {
+        width: 80%;
+        background-color: #ddd;
+        display: flex;
+      }
+      .skillPercent {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .html95 {
+        width: 95%;
+      }
+      .html90 {
+        width: 90%;
+      }
+      .html85 {
+        width: 85%;
+      }
+      .html80 {
+        width: 80%;
+      }
+      .html70 {
+        width: 70%;
+      }
+      .skillsTag {
+        background-color: #4caf50;
+        text-align: right;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: white;
+      }
+    }
+  }
+  .projects {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .projectsRow {
+      display: grid;
+      grid-template-columns: 600px 600px;
+    }
+
+    .projectsBox {
+      background-color: var(--text-color);
+      border-radius: 4px;
+      box-shadow: 10px 15px 50px 0px rgba(0, 0, 0, 0);
+      transition: "background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s";
+      margin: 10px;
+      overflow: hidden;
+    }
+
+    .projectImg {
+      width: 100%;
+      height: auto;
+    }
+
+    .projDesc {
+      padding: 15px 40px 40px 40px;
     }
   }
 }
@@ -303,30 +375,6 @@
   margin-top: -10px;
 }
 
-.projectsRow {
-  display: grid;
-  grid-template-columns: 600px 600px;
-}
-
-.projectsBox {
-  background-color: #f3f5ff;
-  border-radius: 4px;
-  box-shadow: 10px 15px 50px 0px rgba(0, 0, 0, 0);
-  transition: "background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s";
-  margin: 10px;
-  overflow: hidden;
-}
-
-.projectImg {
-  width: 100%;
-  resize: contain;
-  height: 400px;
-}
-
-.projDesc {
-  padding: 15px 40px 40px 40px;
-}
-
 @media screen and (max-width: 1200px) {
   .experienceContainer {
     flex-direction: column;
@@ -402,87 +450,4 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-
-.progress {
-  $white: #fefefe;
-  $black: #000000;
-  $transitionDuration: 0.3s;
-  $transition: all $transitionDuration ease-in-out;
-
-  .chart {
-    font-size: 1em;
-
-    perspective: 1000px;
-    perspective-origin: 50% 50%;
-    backface-visibility: visible;
-  }
-
-  $faceColor: rgba($white, 0.3);
-  $growColor: rgba($white, 0.6);
-
-  .bar {
-    font-size: 0.3em;
-    position: relative;
-    height: 10em;
-
-    transition: $transition;
-    transform: rotateX(60deg) rotateY(0deg);
-    transform-style: preserve-3d;
-
-    .face {
-      font-size: 2em;
-      position: relative;
-      width: 100%;
-      height: 2em;
-      background-color: $faceColor;
-
-      &.sidea,
-      &.sideb {
-        width: 2em;
-      }
-    }
-    .sidea {
-      transform: rotateX(90deg) rotateY(-90deg) translateX(2em) translateY(1em) translateZ(1em);
-      background-color: rgba($white, 0.6);
-    }
-    .sideb {
-      transform: rotateX(90deg) rotateY(-90deg) translateX(4em) translateY(1em) translateZ(-1em);
-      position: absolute;
-      right: 0;
-    }
-    .side0 {
-      box-shadow: -0.5em -1.5em 4em $white;
-      transform: rotateX(90deg) rotateY(0) translateX(0) translateY(1em) translateZ(-1em);
-    }
-    .side1 {
-      transform: rotateX(90deg) rotateY(0) translateX(0) translateY(1em) translateZ(3em);
-    }
-    .top {
-      transform: rotateX(0deg) rotateY(0) translateX(0em) translateY(4em) translateZ(2em);
-    }
-    .floor {
-      box-shadow: 0 0.1em 0.6em rgba(0, 0, 0, 0.3), 0.6em -0.5em 3em rgba(0, 0, 0, 0.3),
-        1em -1em 8em $white;
-      box-shadow: 0em 0em 2em $white;
-    }
-  }
-
-  .growingBar {
-    transition: $transition;
-    background-color: $growColor;
-    width: 90%;
-    height: 2em;
-    box-shadow: -0.5em -1.5em 4em $white;
-    background-color: rgba($white, 0.6);
-    box-shadow: 0em 0em 2em $white;
-  }
-
-  @for $i from 0 to 101 {
-    .bar#{$i} {
-      .growingBar {
-        width: percentage($i/100);
-      }
-    }
-  }
 }

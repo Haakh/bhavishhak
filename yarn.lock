@@ -1739,6 +1739,11 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@kurkle/color@^0.1.6":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@kurkle/color/-/color-0.1.7.tgz#d8b5a558ea91556790c053d31c7eae30087bd220"
+  integrity sha512-6Dc4aR0xzQyWnxur+HOxt4rD/an6f1yuc7o/vpdMFuggQvg/CAIBmXrhPfQNI2pFJqNiSBoBSu5aXyYqOgNmaw==
+
 "@next/react-dev-overlay@9.4.2":
   version "9.4.2"
   resolved "https://registry.yarnpkg.com/@next/react-dev-overlay/-/react-dev-overlay-9.4.2.tgz#b8d816ae1bbf89cd6f3e509fa1fd8e4dfed7f8fd"
@@ -2606,6 +2611,13 @@ chalk@^2.0.0, chalk@^2.4.1, chalk@^2.4.2:
     ansi-styles "^3.2.1"
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
+
+chart.js@^3.0.0-alpha:
+  version "3.0.0-alpha"
+  resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-3.0.0-alpha.tgz#d82e3f7c882b8e321ad05bc1833f983b2b0b630b"
+  integrity sha512-9jbL1IsG9+1oq01GMKbeJ/257O46nVjQuYWEanpo0MuCr18cXMfkrzBTwdbl0VTOkIvWLJJcU5Cmhdc546k2bA==
+  dependencies:
+    "@kurkle/color" "^0.1.6"
 
 chokidar@2.1.8, chokidar@^2.1.8:
   version "2.1.8"
