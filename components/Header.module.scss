@@ -67,72 +67,43 @@
 // ===============
 // Mobile Menu Animated Opening
 // ===============
+
 .mobileMenu {
   position: relative;
   top: 0px;
-  left: 10px;
+  left: -8px;
+  height: 60px;
+}
 
-  $page-background: #303f9f;
-  $nav-background: var(--bg-color);
-  $color: rgba(black, 0.87);
-  $transition: 0.75s;
+.hamContainer {
+  height: 60px;
+  display: flex;
+  flex: 1;
+  margin-top: 5vh;
+  align-items: center;
+  z-index: 100;
+}
 
-  .nav {
-    width: 300px;
-    background: $nav-background;
-    color: $color;
-    -webkit-clip-path: circle(24px at 30px 24px);
-    clip-path: circle(30px at 32px 30px);
-    transition: -webkit-clip-path $transition * 0.75, clip-path $transition/2;
+// ================
+// * HamBurger
+// ================
+.ham {
+  display: block;
+  width: 25%;
+  margin: -2.2em auto 0 0.2em;
+  -webkit-transition: margin 600ms;
+  -moz-transition: margin 600ms;
+  transition: margin 600ms;
+  cursor: pointer;
+  z-index: 100;
 
-    a {
-      display: block;
-      line-height: 50px;
-      padding: 0 20px;
-      color: inherit;
-      cursor: pointer;
-      user-select: none;
-
-      &:hover {
-        background: #ffe082;
-      }
-      &:active {
-        background: #ffca28;
-      }
-    }
-  }
-
-  .navOpen {
-    transition-timing-function: ease-out;
-    transition-duration: $transition;
-    -webkit-clip-path: circle(390px at 225px 24px);
-    clip-path: circle(390px at 150px 24px);
-  }
-
-  // ===============
-  // Star Wars Menu Icon
-  // ===============
-
-  /*toggleicon*/
-  .toggleicon {
+  span {
     display: block;
-    position: relative;
-    width: 100%;
-    margin: -2.2em auto 0 -0.4em;
-    -webkit-transition: margin 600ms;
-    -moz-transition: margin 600ms;
-    transition: margin 600ms;
-    cursor: pointer;
-    border: 1px solid black;
-  }
-
-  .toggleicon .bar {
-    display: block;
-    width: 1em;
-    height: 0.1em;
-    margin: 0.8em;
-    border-right: 2.8em solid var(--text-color);
-    border-left: 0.6em solid var(--text-color);
+    width: 3.8em;
+    height: 0.2em;
+    margin: 0.9em;
+    border-right: 2.8em solid #fff;
+    border-left: 0.6em solid #d6d6d6;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -142,53 +113,117 @@
     -webkit-transition-duration: 600ms;
     -moz-transition-duration: 600ms;
     transition-duration: 600ms;
+
+    &:nth-of-type(1) {
+      -webkit-transition: opacity 300ms;
+      -moz-transition: opacity 300ms;
+      transition: opacity 300ms;
+    }
+    &:nth-of-type(2) {
+      -webkit-transform: rotate(-180deg);
+      -moz-transform: rotate(-180deg);
+      -ms-transform: rotate(-180deg);
+      -o-transform: rotate(-180deg);
+      transform: rotate(-180deg);
+    }
   }
-  .toggleicon .bar:nth-of-type(1) {
-    -webkit-transition: opacity 300ms;
-    -moz-transition: opacity 300ms;
-    transition: opacity 300ms;
-  }
-  .toggleicon .bar:nth-of-type(2) {
-    -webkit-transform: rotate(-180deg);
-    -moz-transform: rotate(-180deg);
-    -ms-transform: rotate(-180deg);
-    -o-transform: rotate(-180deg);
-    transform: rotate(-180deg);
+}
+
+.hamToggle {
+  .ham {
+    // margin: -3.2em 0 0 0.7em;
+    margin: -3.5em auto 0 0.8em;
   }
 
-  /*pushed*/
-  .pushed .toggleicon {
-    margin: -3.2em 0 0 0.7em;
-  }
+  span {
+    &:nth-of-type(1) {
+      opacity: 0;
+    }
 
-  .pushed .bar:nth-of-type(1) {
+    &:nth-of-type(2) {
+      margin-left: 1.4em;
+      -webkit-transform: rotate(-137deg) translateY(-1.5em);
+      -moz-transform: rotate(-137deg) translateY(-1.5em);
+      -ms-transform: rotate(-137deg) translateY(-1.5em);
+      -o-transform: rotate(-137deg) translateY(-1.5em);
+      transform: rotate(-137deg) translateY(-1.5em);
+    }
+
+    &:nth-of-type(3) {
+      margin-left: 0.5em;
+      -webkit-transform: rotate(-42deg);
+      -moz-transform: rotate(-42deg);
+      -ms-transform: rotate(-42deg);
+      -o-transform: rotate(-42deg);
+      transform: rotate(-42deg);
+    }
+  }
+}
+
+// ==============
+// Background
+// ==============
+.menu {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 50px;
+  padding-top: 100px;
+  background: #585858;
+  width: 0px;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -webkit-transition: width 1s ease-in-out;
+  -moz-transition: width 1s ease-in-out;
+  -o-transition: width 1s ease-in-out;
+  transition: width 1s ease-in-out;
+
+  a {
+    position: relative;
+    top: 0;
+    left: 10%;
+    width: 0%;
+    padding: 25px 10px;
+    font-size: 35px;
     opacity: 0;
-  }
+    animation: fadeInLeft 0.5s ease forwards;
+    text-decoration: none;
 
-  .pushed .bar:nth-of-type(2) {
-    margin-left: 1.4em;
-    -webkit-transform: rotate(-137deg) translateY(-1.5em);
-    -moz-transform: rotate(-137deg) translateY(-1.5em);
-    -ms-transform: rotate(-137deg) translateY(-1.5em);
-    -o-transform: rotate(-137deg) translateY(-1.5em);
-    transform: rotate(-137deg) translateY(-1.5em);
+    &:nth-of-type(1) {
+      animation-delay: 0.2s;
+    }
+    &:nth-of-type(2) {
+      animation-delay: 0.3s;
+    }
+    &:nth-of-type(3) {
+      animation-delay: 0.4s;
+    }
+    &:nth-of-type(4) {
+      animation-delay: 0.5s;
+    }
+    &:nth-of-type(5) {
+      animation-delay: 0.6s;
+    }
+    &:nth-of-type(6) {
+      animation-delay: 0.7s;
+    }
   }
-
-  .pushed .bar:nth-of-type(3) {
-    margin-left: 0.5em;
-    -webkit-transform: rotate(-42deg);
-    -moz-transform: rotate(-42deg);
-    -ms-transform: rotate(-42deg);
-    -o-transform: rotate(-42deg);
-    transform: rotate(-42deg);
+}
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    left: 0;
   }
-
-  .pushed .toggleicon:hover .bar:nth-of-type(2) {
-    border-right-color: #e9b8b9;
-    box-shadow: 0.4em 0 0.6em 0.1em rgba(205, 40, 44, 0.75);
+  100% {
+    opacity: 1;
+    left: 20%;
   }
-  .pushed .toggleicon:hover .bar:nth-of-type(3) {
-    border-right-color: #ddf1da;
-    box-shadow: 0.4em 0 0.6em 0.1em rgba(83, 228, 68, 0.65);
-  }
+}
+.menuToggle {
+  width: 500px;
+  display: flex;
 }

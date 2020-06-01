@@ -23,8 +23,11 @@ const Header = (): JSX.Element => {
   useEffect(() => {
     if (isMobile) {
       const parentDiv = document.getElementById("mobileMenu");
+      const menu = document.getElementById("menu");
+      const height = window.innerHeight;
+      menu.setAttribute("style", `height: ${height + 400}px`);
       const rect = parentDiv.getBoundingClientRect();
-      parentDiv.setAttribute("style", `top:${-(rect.top - 15)}px`);
+      parentDiv.setAttribute("style", `top:${-(rect.top - 10)}px`);
     }
   }, [isMobile]);
 
@@ -87,17 +90,16 @@ const Header = (): JSX.Element => {
   const mobileMenu = (
     <div id="mobileMenu" className={styles.mobileMenu}>
       <div
-        className={`${styles.nav} ${isMenuOpen && styles.navOpen}`}
         onClick={() => setMenuOpen(!isMenuOpen)}
+        className={`${styles.hamContainer} ${isMenuOpen && styles.hamToggle}`}
       >
-        <div className={`${isMenuOpen && styles.pushed}`}>
-          <div className={styles.toggleicon}>
-            <span className={styles.bar}></span>
-            <span className={styles.bar}></span>
-            <span className={styles.bar}></span>
-          </div>
+        <div className={`${styles.ham}`}>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-
+      </div>
+      <div id="menu" className={`${styles.menu} ${isMenuOpen && styles.menuToggle}`}>
         <a href="#about">ABOUT</a>
         <a href="#skills">SKILLS</a>
         <a href="#projects">PROJECTS</a>
