@@ -252,9 +252,9 @@ const IndexPage = () => {
       <ParticleCanvas />
       <div className={styles.background}>
         <Home />
-        {/* <div id="header" className={styles.headerClass}>
+        <div id="header" className={styles.headerClass}>
           <Header />
-        </div> */}
+        </div>
       </div>
       <div className={styles.scroll}>
         {/* <AboutMe />

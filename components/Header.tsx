@@ -1,48 +1,54 @@
+/* eslint @typescript-eslint/no-explicit-any: 0 */
+
 import React, { useState, useEffect } from "react";
 import { FaMoon } from "react-icons/fa";
 import { WiDaySunny } from "react-icons/wi";
 import styles from "./Header.module.scss";
 import Vector from "assets/vector.svg";
 
-const addResponsiveness = () => {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-};
-
-const Header = () => {
+const Header = (): JSX.Element => {
   const [darkMode, toggleMode] = useState(false);
+  const [isMobile, setMobileView] = useState(false);
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
-    const persistedDarkMode = JSON.parse(localStorage.getItem("DARK_MODE"));
+    watchWindow();
+    const persistedDarkMode = JSON.parse(localStorage.getItem("DARK_MODE")) as boolean;
     if (persistedDarkMode === true) {
       document.documentElement.setAttribute("data-theme", "dark");
     }
     toggleMode(persistedDarkMode);
   }, []);
 
-  const toggleDarkMode = () => {
-    if (darkMode) {
-      document.documentElement.setAttribute("data-theme", "light");
-    } else {
-      document.documentElement.setAttribute("data-theme", "dark");
+  useEffect(() => {
+    if (isMobile) {
+      const parentDiv = document.getElementById("mobileMenu");
+      const rect = parentDiv.getBoundingClientRect();
+      parentDiv.setAttribute("style", `top:${-(rect.top - 15)}px`);
     }
+  }, [isMobile]);
+
+  const toggleDarkMode = () => {
+    document.documentElement.setAttribute("data-theme", darkMode ? "light" : "dark");
+
     toggleMode(!darkMode);
+    // eslint-disable-next-line
     localStorage.setItem("DARK_MODE", !darkMode as any);
   };
 
-  return (
-    <header className={styles.header}>
+  const watchWindow = () => {
+    const myFunction = (x: MediaQueryList) => {
+      setMobileView(x.matches);
+    };
+
+    const x = window.matchMedia("(max-width: 700px)");
+    myFunction(x); // Call listener function at run time
+    x.addListener(myFunction as any); // Attach listener function on state changes
+  };
+
+  const menu = (
+    <header>
       <div className={styles.topnav}>
-        <a
-          role="button"
-          className={[styles.icon, darkMode ? styles.item : styles.itemDark].join(" ")}
-          // onClick={() => addResponsiveness()}
-        >
-          {/* <FaBars /> */}
-        </a>
         <div className={styles.item}>
           <a href="#about">ABOUT</a>
           <Vector className={styles.itemUnderline} />
@@ -77,6 +83,32 @@ const Header = () => {
       </div>
     </header>
   );
+
+  const mobileMenu = (
+    <div id="mobileMenu" className={styles.mobileMenu}>
+      <div
+        className={`${styles.nav} ${isMenuOpen && styles.navOpen}`}
+        onClick={() => setMenuOpen(!isMenuOpen)}
+      >
+        <div className={`${isMenuOpen && styles.pushed}`}>
+          <div className={styles.toggleicon}>
+            <span className={styles.bar}></span>
+            <span className={styles.bar}></span>
+            <span className={styles.bar}></span>
+          </div>
+        </div>
+
+        <a href="#about">ABOUT</a>
+        <a href="#skills">SKILLS</a>
+        <a href="#projects">PROJECTS</a>
+        <a href="#experiences">EXPERIENCE</a>
+        <a href="#education">BLOGS</a>
+        <a href="#contacts">CONTACTS</a>
+      </div>
+    </div>
+  );
+
+  return isMobile ? mobileMenu : menu;
 };
 
 export default Header;

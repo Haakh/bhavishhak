@@ -2,7 +2,6 @@
   display: flex;
   flex: 1;
   align-self: stretch;
-  border: 3px solid black;
   flex-direction: column;
 
   .respImg {
@@ -76,7 +75,7 @@
       flex: 1;
       display: flex;
       justify-content: center;
-      max-width: 100%;
+      align-items: center;
 
       .profilePic {
         width: 400px;
@@ -86,8 +85,9 @@
 
     .myDesc {
       flex: 1;
+      justify-content: center;
+      align-items: center;
       backdrop-filter: blur(1px);
-      border: 3px solid transparent;
       padding: 20px;
 
       &:hover {
@@ -425,29 +425,47 @@
 }
 
 @media screen and (max-width: 700px) {
-  .timeline::after {
-    left: 31px;
-  }
-  /* Full-width containers */
   .container {
-    width: 100%;
-    padding-left: 70px;
-    padding-right: 25px;
-  }
-  /* Make sure that all arrows are pointing leftwards */
-  .container::before {
-    left: 60px;
-    border: medium solid white;
-    border-width: 10px 10px 10px 0;
-    border-color: transparent white transparent transparent;
-  }
-  /* Make sure all circles are at the same spot */
-  .left::after,
-  .right::after {
-    left: 15px;
-  }
-  /* Make all right containers behave like the left ones */
-  .right {
-    left: 0%;
+    .home {
+      height: 800px;
+      flex-direction: column;
+
+      .myPic {
+        .profilePic {
+          width: 200px;
+          height: 200px;
+        }
+      }
+      .myDesc {
+      }
+    }
+
+    .experience {
+      .timeline::after {
+        left: 31px;
+      }
+      /* Full-width containers */
+      .expContainer {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      /* Make sure that all arrows are pointing leftwards */
+      .expContainer::before {
+        left: 60px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+      }
+      /* Make sure all circles are at the same spot */
+      .left::after,
+      .right::after {
+        left: 15px;
+      }
+      /* Make all right containers behave like the left ones */
+      .right {
+        left: 0%;
+      }
+    }
   }
 }
