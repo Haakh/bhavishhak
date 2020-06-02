@@ -22,12 +22,9 @@ const Header = (): JSX.Element => {
 
   useEffect(() => {
     if (isMobile) {
-      const parentDiv = document.getElementById("mobileMenu");
       const menu = document.getElementById("menu");
       const height = window.innerHeight;
       menu.setAttribute("style", `height: ${height + 400}px`);
-      const rect = parentDiv.getBoundingClientRect();
-      parentDiv.setAttribute("style", `top:${-(rect.top - 10)}px`);
     }
   }, [isMobile]);
 
@@ -49,8 +46,23 @@ const Header = (): JSX.Element => {
     x.addListener(myFunction as any); // Attach listener function on state changes
   };
 
+  if (typeof window !== "undefined" && !isMobile) {
+    window.onscroll = function () {
+      myFunction();
+    };
+    const header = document.getElementById("header");
+    const sticky = header.offsetTop;
+    const myFunction = () => {
+      if (window.pageYOffset > sticky) {
+        header.classList.add(styles.sticky);
+      } else {
+        header.classList.remove(styles.sticky);
+      }
+    };
+  }
+
   const menu = (
-    <header>
+    <header id="header" className={styles.headerClass}>
       <div className={styles.topnav}>
         <div className={styles.item}>
           <a href="#about">ABOUT</a>
@@ -88,7 +100,7 @@ const Header = (): JSX.Element => {
   );
 
   const mobileMenu = (
-    <div id="mobileMenu" className={styles.mobileMenu}>
+    <div id="mobileMenu" className={`${styles.mobileMenu} ${styles.sticky}`}>
       <div
         onClick={() => setMenuOpen(!isMenuOpen)}
         className={`${styles.hamContainer} ${isMenuOpen && styles.hamToggle}`}

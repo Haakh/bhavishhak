@@ -1,5 +1,6 @@
 // import SEO from "../components/seo"
-import { Header, SectionTitle, ParticleCanvas } from "components/index";
+import React from "react";
+import { Header, ParticleCanvas } from "components/index";
 import { data } from "../data";
 import {
   FaGithub,
@@ -29,16 +30,15 @@ const Progress = ({ skill }) => (
     <div className={styles.skillName}>{skill.title}</div>
     <div className={styles.tagContainer}>
       <div className={[styles.skillsTag, styles[`html${skill.rating}`]].join(" ")}></div>
-      <div className={styles.skillPercent}>{skill.rating}%</div>
     </div>
   </div>
 );
 
 const Home = () => (
   <div className={styles.home} id="home">
-    <div className={styles.tagHtml}>{renderTags("<html>")}</div>
-    <div className={styles.tagHead}>{renderTags("<head>")}</div>
-    <div className={styles.tagHeadClose}>{renderTags("</head>")}</div>
+    <div className={styles.tag1}>{renderTags("<html>")}</div>
+    <div className={styles.tag2}>{renderTags("<head>")}</div>
+    <div className={styles.tag3}>{renderTags("</head>")}</div>
     <div className={styles.myPic}>
       <img alt="bhavish" className={styles.profilePic} src="/bhavish.jpg" />
     </div>
@@ -81,8 +81,8 @@ const Home = () => (
 
 const AboutMe = () => (
   <div className={styles.aboutMe} id="about">
-    <div className={styles.tagBody}>{renderTags("<body>")}</div>
-    <div className={styles.tagH1}>{renderTags("<h1>")}</div>
+    <div className={styles.tag4}>{renderTags("<body>")}</div>
+    <div className={styles.tag5}>{renderTags("<h1>")}</div>
     <div className={styles.sectionHeader}>ABOUT ME</div>
     <div className={styles.sectionDesc}>
       I am a Full Stack web/mobile application developer with a Bachelors of Engineering in Computer
@@ -141,9 +141,8 @@ const Projects = () => {
 };
 
 const Experiences = () => {
-  const ExpImage = (props) => <div />;
-
   const { experiences } = data;
+
   return (
     <div className={styles.experience} id="experiences">
       <div className={styles.sectionHeader}>Experience</div>
@@ -188,18 +187,6 @@ const Contacts = () => (
       </div>
       <div
         className={styles.column}
-        onClick={() => window.open("https://github.com/Haakh", "_self")}
-      >
-        <FaGithub className={styles.contactIcon} />
-      </div>
-      <div
-        className={styles.column}
-        onClick={() => window.open("https://medium.com/@bhavishhak", "_self")}
-      >
-        <FaMedium className={styles.contactIcon} />
-      </div>
-      <div
-        className={styles.column}
         onClick={() => window.open("https://www.instagram.com/bhavishhak/", "_self")}
       >
         <FaInstagramSquare className={styles.contactIcon} />
@@ -220,26 +207,15 @@ const renderTags = (text) => (
   </div>
 );
 
-const IndexPage = () => {
+const IndexPage = (): JSX.Element => {
   if (typeof window !== "undefined") {
-    // var ctx = document.getElementById("myChart");
-    // var myChart = new Chart(ctx, {
-    //   type: "pie",
-    //   data: chartData,
-    //   options: {},
-    // });
-    // window.onscroll = function () {
-    //   myFunction();
-    // };
-    // const header = document.getElementById("header");
-    // const sticky = header.offsetTop;
-    // const myFunction = () => {
-    //   if (window.pageYOffset > sticky) {
-    //     header.classList.add(styles.sticky);
-    //   } else {
-    //     header.classList.remove(styles.sticky);
-    //   }
-    // };
+    const ctx = document.getElementById("myChart") as HTMLCanvasElement;
+    // eslint-disable-next-line
+    const myChart = new Chart(ctx, {
+      type: "pie",
+      data: chartData,
+      options: {},
+    });
   }
 
   return (
@@ -252,17 +228,15 @@ const IndexPage = () => {
       <ParticleCanvas />
       <div className={styles.background}>
         <Home />
-        <div id="header" className={styles.headerClass}>
-          <Header />
-        </div>
+        <Header />
       </div>
       <div className={styles.scroll}>
-        {/* <AboutMe />
+        <AboutMe />
         <Projects />
         <Experiences />
-        <Contacts /> */}
+        <Contacts />
       </div>
-      {/* <div className={styles.footer}>© Bhavish Hak. All Rights Reserved</div> */}
+      <div className={styles.footer}>© Bhavish Hak. All Rights Reserved</div>
     </div>
   );
 };

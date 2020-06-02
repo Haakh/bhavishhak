@@ -178,26 +178,6 @@ const projects: ProjectType[] = [
 
 const skills = [
   {
-    title: "HTML5/CSS3",
-    rating: "90",
-  },
-  {
-    title: "JavaScript",
-    rating: "90",
-  },
-  {
-    title: "Typescript",
-    rating: "85",
-  },
-  {
-    title: "React.js",
-    rating: "90",
-  },
-  {
-    title: "Node.js",
-    rating: "80",
-  },
-  {
     title: "React Native",
     rating: "95",
   },
@@ -206,11 +186,35 @@ const skills = [
     rating: "95",
   },
   {
-    title: "MongoDB",
+    title: "HTML5/CSS3",
     rating: "90",
   },
   {
-    title: "MySql/PostgreSql",
+    title: "React.js",
+    rating: "90",
+  },
+  {
+    title: "Amazon S3",
+    rating: "90",
+  },
+  {
+    title: "AppSync",
+    rating: "90",
+  },
+  {
+    title: "Typescript",
+    rating: "85",
+  },
+  {
+    title: "Node.js",
+    rating: "80",
+  },
+  {
+    title: "MongoDB",
+    rating: "80",
+  },
+  {
+    title: "PostgreSql",
     rating: "80",
   },
   {
@@ -218,33 +222,13 @@ const skills = [
     rating: "80",
   },
   {
-    title: "Amazon S3",
-    rating: "90",
-  },
-  // {
-  //   title: "Amazon DynamoDB",
-  //   rating: "90",
-  // },
-  {
-    title: "AppSync",
-    rating: "90",
-  },
-  // {
-  //   title: "AppCenter",
-  //   rating: "95",
-  // },
-  {
-    title: "App Engine",
-    rating: "70",
-  },
-  {
     title: "Heroku",
     rating: "70",
   },
-  // {
-  //   title: "Docker",
-  //   rating: "65",
-  // },
+  {
+    title: "Docker",
+    rating: "65",
+  },
 ];
 
 export const data = {

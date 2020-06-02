@@ -12,52 +12,43 @@
     font-size: 40px;
     margin-bottom: 40px;
     margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .sectionDesc {
     font-size: 22px;
     text-align: left;
   }
   .background {
-    z-index: 10;
-
-    .headerClass {
-      height: 10vh;
-      backdrop-filter: blur(2px);
-      transition: all 0.2s linear;
-    }
-    .sticky {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: var(--bg-color);
-    }
+    z-index: 200;
   }
   .scroll {
     z-index: 10;
     background-color: var(--bg-color);
   }
 
-  .tagHtml {
+  .tag1 {
     position: absolute;
     top: 8%;
     left: 4%;
   }
-  .tagHead {
+  .tag2 {
     position: absolute;
     top: 13%;
     left: 8%;
   }
-  .tagHeadClose {
+  .tag3 {
     position: absolute;
     bottom: 15%;
     left: 8%;
   }
-  .tagBody {
+  .tag4 {
     position: absolute;
     bottom: -10%;
     left: 8%;
   }
-  .tagH1 {
+  .tag5 {
     position: absolute;
     bottom: -6%;
     left: 39%;
@@ -149,9 +140,9 @@
     }
     .skillBox {
       display: flex;
-      width: 80vw;
       justify-content: center;
       align-items: center;
+      align-self: stretch;
 
       .skillChart {
         width: 35%;
@@ -163,10 +154,12 @@
         flex-direction: column;
         justify-content: center;
         align-items: flex-end;
+        align-self: stretch;
       }
     }
 
     .progress {
+      border: 2px solid;
       width: 80%;
       height: 30px;
       background-color: #ddd;
@@ -183,11 +176,6 @@
         width: 80%;
         background-color: #ddd;
         display: flex;
-      }
-      .skillPercent {
-        display: flex;
-        align-items: center;
-        justify-content: center;
       }
       .html95 {
         width: 95%;
@@ -216,6 +204,7 @@
 
   .projects {
     display: flex;
+    flex: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -224,8 +213,8 @@
     .projectsRow {
       display: flex;
       flex-wrap: wrap;
+      flex: 1;
       justify-content: center;
-      width: 900px;
 
       .projectsBox {
         background-color: var(--bg-color);
@@ -295,7 +284,6 @@
 
     .timeline {
       position: relative;
-      max-width: 1200px;
       margin: 0 auto;
     }
     .timeline::after {
@@ -312,7 +300,7 @@
       padding: 10px 40px;
       position: relative;
       background-color: inherit;
-      width: 50%;
+      width: 40%;
     }
 
     .expContainer::after {
@@ -426,6 +414,10 @@
 
 @media screen and (max-width: 700px) {
   .container {
+    .tag3 {
+      bottom: 35%;
+    }
+
     .home {
       height: 800px;
       flex-direction: column;
@@ -437,22 +429,62 @@
         }
       }
       .myDesc {
+        .row {
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+
+    .aboutMe {
+      padding: 10px 20px;
+
+      .skillBox {
+        display: flex;
+        flex-direction: column;
+
+        .skillChart {
+          width: 300px;
+          height: 300px;
+        }
+        .skillProgress {
+          margin-top: 50px;
+          align-self: stretch;
+        }
+        .progress {
+          width: 100%;
+
+          .skillName {
+            font-size: 14px;
+            display: flex;
+            width: 150px;
+            justify-content: flex-start;
+          }
+        }
+      }
+    }
+
+    .projects {
+      .projectsRow {
+        width: 300px;
+        height: 350px;
       }
     }
 
     .experience {
       .timeline::after {
-        left: 31px;
+        left: 3px;
+        border: 2px solid;
       }
       /* Full-width containers */
       .expContainer {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
+        width: 300px;
+        padding-left: 0px;
+        padding-right: 0px;
       }
       /* Make sure that all arrows are pointing leftwards */
       .expContainer::before {
-        left: 60px;
+        left: 20px;
         border: medium solid white;
         border-width: 10px 10px 10px 0;
         border-color: transparent white transparent transparent;
@@ -460,7 +492,7 @@
       /* Make sure all circles are at the same spot */
       .left::after,
       .right::after {
-        left: 15px;
+        left: -10px;
       }
       /* Make all right containers behave like the left ones */
       .right {
