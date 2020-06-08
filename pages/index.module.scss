@@ -142,16 +142,81 @@
     flex-direction: column;
     align-items: center;
 
-    .skillsDesc {
-      font-size: 22px;
-      text-align: center;
-      padding: 0px 100px;
-    }
     .skillBox {
       display: flex;
       justify-content: center;
       align-items: center;
       align-self: stretch;
+      flex-direction: column;
+
+      .progressBox {
+        display: flex;
+        width: 600px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+
+        .dev {
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #000;
+          position: relative;
+        }
+
+        .dev1 {
+          flex: 5;
+          margin-right: 25px;
+        }
+        .dev1:after {
+          @extend .devAfter;
+        }
+
+        .dev2 {
+          flex: 3;
+          margin-right: 25px;
+        }
+        .dev2:after {
+          @extend .devAfter;
+        }
+        .dev2:before {
+          @extend .devBefore;
+        }
+
+        .dev3 {
+          flex: 2;
+        }
+        .dev3:before {
+          @extend .devBefore;
+        }
+
+        .devAfter {
+          content: " ";
+          position: absolute;
+          width: 25px;
+          height: 100%;
+          top: 0;
+          right: 0;
+          background: #000;
+          transform-origin: bottom left;
+          -ms-transform: skew(-30deg, 0deg);
+          -webkit-transform: skew(-30deg, 0deg);
+          transform: skew(-30deg, 0deg);
+        }
+        .devBefore {
+          content: " ";
+          position: absolute;
+          width: 18px;
+          height: 100%;
+          top: 0;
+          left: -18px;
+          background: #000;
+          transform-origin: bottom left;
+          -ms-transform: skew(-30deg, 0deg);
+          -webkit-transform: skew(-30deg, 0deg);
+          transform: skew(-30deg, 0deg);
+        }
+      }
 
       // ===================
       // CARDS
@@ -164,6 +229,123 @@
         align-items: flex-end;
         align-self: stretch;
         flex-wrap: wrap;
+
+        .skillCard {
+          display: flex;
+          height: 200px;
+          width: 200px;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+
+          .skillCircle {
+            height: 200px;
+            width: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .backStroke {
+              stroke: black;
+              stroke-dasharray: 377;
+              stroke-dashoffset: 0;
+              stroke-width: 10px;
+              fill: transparent;
+            }
+
+            .hoverCircle {
+              stroke: white;
+              stroke-width: 10px;
+              stroke-dasharray: 377;
+              fill: transparent;
+              transition: stroke-dashoffset 1s;
+              stroke-linecap: round;
+            }
+            .transformCircle {
+              fill: transparent;
+              transform-origin: center;
+              transform: scale(0.9, 0.9);
+            }
+            .stroke {
+              stroke: grey;
+              stroke-width: 10px;
+              stroke-dasharray: 377;
+              fill: transparent;
+              transition: stroke-dashoffset 1s 0.5s;
+              stroke-linecap: round;
+
+              &.html95 {
+                stroke-dashoffset: 377 - (377 * 0.95);
+              }
+              &.html90 {
+                stroke-dashoffset: 377 - (377 * 0.9);
+              }
+              &.html85 {
+                stroke-dashoffset: 377 - (377 * 0.85);
+              }
+              &.html80 {
+                stroke-dashoffset: 377 - (377 * 0.8);
+              }
+              &.html70 {
+                stroke-dashoffset: 377 - (377 * 0.7);
+              }
+              &.html65 {
+                stroke-dashoffset: 377 - (377 * 0.65);
+              }
+            }
+          }
+          .test1 {
+            position: absolute;
+            top: 50px;
+            left: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100px;
+            height: 100px;
+
+            .skillText {
+              color: var(--text-color);
+              font-size: 14px;
+            }
+            .skillRating {
+              color: var(--text-color);
+              font-size: 12px;
+            }
+          }
+        }
+        .skillCard:hover {
+          .hoverCircle {
+            &.html95 {
+              stroke-dashoffset: 377 - (377 * 0.95);
+            }
+            &.html90 {
+              stroke-dashoffset: 377 - (377 * 0.9);
+            }
+            &.html85 {
+              stroke-dashoffset: 377 - (377 * 0.85);
+            }
+            &.html80 {
+              stroke-dashoffset: 377 - (377 * 0.8);
+            }
+            &.html70 {
+              stroke-dashoffset: 377 - (377 * 0.7);
+            }
+            &.html65 {
+              stroke-dashoffset: 377 - (377 * 0.65);
+            }
+          }
+          .transformCircle {
+            fill: #000;
+            transform: scale(1, 1);
+            transition: transform 0.2s;
+          }
+          .test1 {
+            transform: scale(1.1, 1.1);
+            transition: transform 0.2s;
+          }
+        }
       }
     }
 
@@ -417,17 +599,49 @@
       cursor: pointer;
       margin: 10px;
       padding: 5px;
+      position: relative;
+
+      .contactIcon {
+        font-size: 1em;
+        color: #fff;
+        position: absolute;
+        transition: all 265ms ease-out;
+      }
+      .contactTitle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
     }
-    .contactIcon {
-      color: #4667de;
-      font-size: 30px;
-      margin-bottom: 15px;
+    .column:before {
+      transform: scale(1);
+      -ms-transform: scale(1);
+      -webkit-transform: scale(1);
+      content: " ";
+      width: 45px;
+      height: 45px;
+      border-radius: 100%;
+      display: block;
+      background: linear-gradient(45deg, #ff003c, #c648c8);
+      transition: all 265ms ease-out;
     }
-    .contactTitle {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    .column:hover:before {
+      transform: scale(0);
+      transition: all 265ms ease-in;
+    }
+    .column:hover {
+      .contactIcon {
+        transform: scale(2.2);
+        -ms-transform: scale(2.2);
+        -webkit-transform: scale(2.2);
+        color: #ff003c;
+        background: -webkit-linear-gradient(45deg, #ff003c, #c648c8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        transition: all 265ms ease-in;
+      }
     }
   }
 

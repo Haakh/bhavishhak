@@ -98,10 +98,39 @@ const Skills = () => (
   <div className={styles.skills} id="skills">
     <div className={styles.sectionHeader}>SKILLS</div>
     <div className={styles.skillBox}>
-      {/* <div>FrontEnd/Backend Bar top top</div> */}
+      <div className={styles.progressBox}>
+        <div className={`${styles.dev1} ${styles.dev}`}>Front-End</div>
+        <div className={`${styles.dev2} ${styles.dev}`}>Back-End</div>
+        <div className={`${styles.dev3} ${styles.dev}`}>Dev-Ops</div>
+      </div>
       <div className={styles.skillProgress}>
         {data.skills.map((skillItem) => (
-          <div className={styles.card}></div>
+          <div className={styles.skillCard}>
+            <div className={styles.skillCircle}>
+              <svg xmlns="http://www.w3.org/2000/svg">
+                <circle className={styles.backStroke} cx="70" cy="70" r="60" />
+                <circle
+                  className={[styles.stroke, styles[`html${skillItem.rating}`]].join(" ")}
+                  cx="70"
+                  cy="70"
+                  r="60"
+                  stroke-dashoffset="377"
+                />
+                <circle
+                  className={[styles.hoverCircle, styles[`html${skillItem.rating}`]].join(" ")}
+                  stroke-dashoffset="377"
+                  cx="70"
+                  cy="70"
+                  r="60"
+                />
+                <circle className={styles.transformCircle} cx="70" cy="70" r="60" />
+              </svg>
+            </div>
+            <div className={styles.test1}>
+              <div className={styles.skillText}>{`${skillItem.title}`}</div>
+              <div className={styles.skillRating}>{`${skillItem.rating}`}%</div>
+            </div>
+          </div>
         ))}
       </div>
     </div>
@@ -184,11 +213,11 @@ const Contacts = () => (
   <div className={styles.contacts} id="contacts">
     <div className={styles.sectionHeader}>Contact Me</div>
     <div className={styles.contactInfo}>
-      <div className={styles.column}>
-        <a className={styles.contactTitle} href="mailto:hakbhavish@gmail.com">
+      <a className={styles.contactTitle} href="mailto:hakbhavish@gmail.com">
+        <div className={styles.column}>
           <FaEnvelope className={styles.contactIcon} />
-        </a>
-      </div>
+        </div>
+      </a>
       <div
         className={styles.column}
         onClick={() => window.open("https://www.linkedin.com/in/bhavishhak/", "_self")}
