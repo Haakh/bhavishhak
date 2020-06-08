@@ -460,12 +460,79 @@
         }
       }
     }
+
+    .flipButton {
+      box-sizing: border-box;
+      width: 200px;
+      height: 60px;
+      perspective: 500px;
+      position: relative;
+      margin: 50px 0 50px 0px;
+    }
+
     .viewMore {
-      padding: 15px;
-      margin: 20px;
-      margin-top: 50px;
-      font-size: 26px;
-      border: 2px solid white;
+      font-weight: 400;
+      text-transform: uppercase;
+      margin: 0;
+      padding: 10px;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transform-style: preserve-3d;
+      transform: translateZ(-25px);
+      transition: transform 0.3s;
+      cursor: pointer;
+
+      .viewMoreFront,
+      .viewMoreBack {
+        margin: 0;
+        width: 160px;
+        height: 48px;
+        line-height: 48px;
+        position: absolute;
+        text-align: center;
+        letter-spacing: 0.4em;
+        padding: 10px;
+      }
+      .viewMoreFront {
+        background-color: #222;
+        color: #fff;
+        transform: rotateY(0) translateZ(35px);
+      }
+      .viewMoreBack {
+        background-color: rgba(255, 255, 255, 0);
+        color: rgba(34, 34, 34, 0);
+        transform: rotateX(90deg) translateZ(28px);
+        overflow: hidden;
+      }
+      .viewMoreBack::after {
+        content: "";
+        position: absolute;
+        top: -32%;
+        left: -10%;
+        width: 120%;
+        height: 50%;
+        background: #222;
+        transform: rotate(10deg);
+        transition: all 0.5s ease;
+        transition-delay: 0.15s;
+      }
+    }
+    .viewMore:hover {
+      transform: translateZ(-28px) rotateX(-90deg);
+
+      .viewMoreFront {
+        background: #000;
+        transition: all 0.8s ease;
+      }
+      .viewMoreBack {
+        color: #222;
+        transition: color 0.4s linear;
+        background: #fff;
+      }
+      .viewMoreBack:after {
+        transform: rotate(6deg) translate(100px, -22px);
+      }
     }
   }
 

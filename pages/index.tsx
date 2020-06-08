@@ -166,7 +166,12 @@ const Projects = () => {
           </div>
         ))}
       </div>
-      <div className={styles.viewMore}>VIEW MORE</div>
+      <div className={styles.flipButton}>
+        <div className={styles.viewMore}>
+          <div className={styles.viewMoreFront}>VIEW MORE</div>
+          <div className={styles.viewMoreBack}>VIEW MORE</div>
+        </div>
+      </div>
     </div>
   );
 };
