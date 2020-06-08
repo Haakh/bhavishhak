@@ -47,18 +47,20 @@ const Header = (): JSX.Element => {
   };
 
   if (typeof window !== "undefined" && !isMobile) {
-    window.onscroll = function () {
-      myFunction();
-    };
     const header = document.getElementById("header");
-    const sticky = header.offsetTop;
-    const myFunction = () => {
-      if (window.pageYOffset > sticky) {
-        header.classList.add(styles.sticky);
-      } else {
-        header.classList.remove(styles.sticky);
-      }
-    };
+    if (header) {
+      window.onscroll = function () {
+        myFunction();
+      };
+      const sticky = header.offsetTop;
+      const myFunction = () => {
+        if (window.pageYOffset > sticky) {
+          header.classList.add(styles.sticky);
+        } else {
+          header.classList.remove(styles.sticky);
+        }
+      };
+    }
   }
 
   const menu = (

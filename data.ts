@@ -10,7 +10,7 @@ const experiences: ExperienceType[] = [
   {
     company: "Freelance",
     designation: "Freelancer - Web/Mobile App Developer",
-    duration: "Feb 2019 - Present",
+    duration: "Feb'19 - Now",
     logoImage: "freelancer",
     desc: `Self-employed, work for myself, rather than for a company.
      I take on contract work for companies and organizations usually on hourly basis (can be fixed price at times), based all across the globe. Have developed and delivered multiple mobile and web applications.`,
@@ -18,7 +18,7 @@ const experiences: ExperienceType[] = [
   {
     company: "Gsynergy",
     designation: "Full Stack Developer",
-    duration: "Feb 2019 - Apr 2020",
+    duration: "Feb'19 - Apr'20",
     logoImage: "gsynergyicon",
     link: "https://www.linkedin.com/company/gsynergy/",
     desc: `Worked as a freelance contractor. Lead a team of developers, Delivered performance-driven and user-centric mobile application that met all
@@ -27,7 +27,7 @@ const experiences: ExperienceType[] = [
   {
     company: "DockTalk",
     designation: "Full Stack Developer",
-    duration: "March 2018 - Apr 2019",
+    duration: "Mar'18 - Apr'19",
     logoImage: "doctalk",
     link: "https://www.crunchbase.com/organization/doctalk",
     desc: `Developed backend in ElasticSearch Stack deployed on AWS ELK and Firebase/Firestore and NodeJS hosted on google Cloud.
@@ -37,7 +37,7 @@ const experiences: ExperienceType[] = [
   {
     company: "Geekyants",
     designation: "Full Stack Developer",
-    duration: "2016 - Mar 2018",
+    duration: "16 - Mar'18",
     logoImage: "geekyants",
     link: "https://geekyants.com/",
     desc: `Worked on designed & developing mobile and web applications Full Stack and lead a team of

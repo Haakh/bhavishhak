@@ -6,25 +6,38 @@ $laBelleAurore: "La Belle Aurore", sans-serif;
   --bg-hover-color: #c5c0b6;
   --text-color: #292a32;
   --bg-sec-color: #feffff;
-  --about-me: #ecdec0;
+  --about-me: #3b3355;
   --skills: #9e8650;
   --laBelleAurore: $laBelleAurore;
   --text-shade-color: #747783;
   --white: #ffffff;
+  --gradient-start: rgb(9, 12, 8);
+  --gradient-end: rgb(18, 24, 16);
 }
 
 /* #2f3337 */
 
 [data-theme="dark"] {
-  --bg-color: #292a32;
-  --bg-hover-color: #1c1d20;
-  --text-color: #fbfaf8;
-  --bg-sec-color: #393b43;
-  --about-me: #26293a;
-  --skills: #4e578b;
   --laBelleAurore: $laBelleAurore;
+
+  --bg-color: #292a32;
+  --bg-sec-color: #2c2f2e;
+  --bg-hover-color: #1c1d20;
+
+  --text-color: #fbfaf8;
+  --text-hover-color: #fbfaf8;
   --text-shade-color: #747783;
+  --highlights: #0050fb;
+
+  --about-me: #3b3355;
+  --skills: #22333b;
+  --projects: #22333b;
+  --experience: #2f1000;
+  --contacts: #313e50;
+
   --white: #000000;
+  --gradien-start: rgb(9, 12, 8);
+  --gradien-end: rgb(9, 12, 8);
 }
 
 html {

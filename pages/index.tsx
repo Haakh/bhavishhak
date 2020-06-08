@@ -11,7 +11,6 @@ import {
   FaInstagramSquare,
 } from "react-icons/fa";
 import styles from "./index.module.scss";
-import Chart from "chart.js";
 import Head from "next/head";
 
 const chartData = {
@@ -92,14 +91,17 @@ const AboutMe = () => (
       relations. I have developed multiple apps from scratch in various domains like healthcare,
       retail, transport, employee management, etc.
     </div>
+  </div>
+);
+
+const Skills = () => (
+  <div className={styles.skills} id="skills">
     <div className={styles.sectionHeader}>SKILLS</div>
     <div className={styles.skillBox}>
-      <div className={styles.skillChart}>
-        <canvas id="myChart" width="100" height="100"></canvas>
-      </div>
+      {/* <div>FrontEnd/Backend Bar top top</div> */}
       <div className={styles.skillProgress}>
         {data.skills.map((skillItem) => (
-          <Progress skill={skillItem} key={skillItem.title} />
+          <div className={styles.card}></div>
         ))}
       </div>
     </div>
@@ -146,6 +148,7 @@ const Experiences = () => {
   return (
     <div className={styles.experience} id="experiences">
       <div className={styles.sectionHeader}>Experience</div>
+      <div className={styles.expDivider} />
       <div className={styles.timeline}>
         {experiences.map((exp, index) => {
           const classN = styles[`box${index}`];
@@ -156,6 +159,13 @@ const Experiences = () => {
                 (index + 1) % 2 ? styles.left : styles.right
               } ${classN}`}
             >
+              <div
+                className={`${styles.testTime} ${
+                  (index + 1) % 2 ? styles.leftTime : styles.rightTime
+                }`}
+              >
+                {exp.duration}
+              </div>
               <div className={styles.content}>
                 <h2>{exp.company}</h2>
                 <h3>{exp.designation}</h3>
@@ -208,16 +218,6 @@ const renderTags = (text) => (
 );
 
 const IndexPage = (): JSX.Element => {
-  if (typeof window !== "undefined") {
-    const ctx = document.getElementById("myChart") as HTMLCanvasElement;
-    // eslint-disable-next-line
-    const myChart = new Chart(ctx, {
-      type: "pie",
-      data: chartData,
-      options: {},
-    });
-  }
-
   return (
     <div className={styles.container}>
       <Head>
@@ -232,6 +232,7 @@ const IndexPage = (): JSX.Element => {
       </div>
       <div className={styles.scroll}>
         <AboutMe />
+        <Skills />
         <Projects />
         <Experiences />
         <Contacts />
