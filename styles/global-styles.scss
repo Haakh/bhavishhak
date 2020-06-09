@@ -13,6 +13,11 @@ $laBelleAurore: "La Belle Aurore", sans-serif;
   --white: #ffffff;
   --gradient-start: rgb(9, 12, 8);
   --gradient-end: rgb(18, 24, 16);
+  --smooth-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 6.5px 10px rgba(2, 2, 2, 0.06), 0 12.3px 11.9px rgba(0, 0, 0, 0.072),
+    0 10.8px 8.4px rgba(0, 0, 0, 0.086), 0 10px 10px rgba(0, 0, 0, 0.12);
+  --smooth-shadow2: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  --smooth-shadow-def: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 /* #2f3337 */
@@ -38,6 +43,11 @@ $laBelleAurore: "La Belle Aurore", sans-serif;
   --white: #000000;
   --gradien-start: rgb(9, 12, 8);
   --gradien-end: rgb(9, 12, 8);
+  --smooth-shadow: 0 2.8px 2.2px rgba(255, 255, 255, 0.034),
+    0 6.7px 5.3px rgba(255, 255, 255, 0.048), 0 12.5px 10px rgba(255, 255, 255, 0.06),
+    0 22.3px 17.9px rgba(255, 255, 255, 0.072), 0 41.8px 33.4px rgba(255, 255, 255, 0.086),
+    0 100px 80px rgba(255, 255, 255, 0.12);
+  --smooth-shadow2: 0 10px 20px rgba(255, 255, 255, 0.19), 0 6px 6px rgba(255, 255, 255, 0.23);
 }
 
 html {

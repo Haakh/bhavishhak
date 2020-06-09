@@ -1,7 +1,7 @@
 // import SEO from "../components/seo"
 import React from "react";
 import { Header, ParticleCanvas } from "components/index";
-import { data } from "../data";
+import { data, ProjectType } from "../data";
 import {
   FaGithub,
   FaMedium,
@@ -12,26 +12,6 @@ import {
 } from "react-icons/fa";
 import styles from "./index.module.scss";
 import Head from "next/head";
-
-const chartData = {
-  datasets: [
-    {
-      data: [50, 30, 20],
-      fill: "origin",
-      backgroundColor: ["rgba(0,0,255,0.5)", "blue", "green"],
-    },
-  ],
-  labels: ["FrontEnd", "Backend", "Designing"],
-};
-
-const Progress = ({ skill }) => (
-  <div className={styles.progress}>
-    <div className={styles.skillName}>{skill.title}</div>
-    <div className={styles.tagContainer}>
-      <div className={[styles.skillsTag, styles[`html${skill.rating}`]].join(" ")}></div>
-    </div>
-  </div>
-);
 
 const Home = () => (
   <div className={styles.home} id="home">
@@ -45,9 +25,7 @@ const Home = () => (
     <div className={styles.myDesc}>
       <div className={styles.section1}>Hello, I'm Bhavish</div>
       <div className={styles.section2}>Full Stack Developer | Freelancer</div>
-      <p className={styles.sectionDesc}>
-        I make cool Mobile Apps and Websites. Check them out below.
-      </p>
+      <p className={styles.sectionDesc}>I make cool Mobile Apps and Websites.</p>
       <div className={styles.row}>
         <div
           className={styles.iconContainer}
@@ -137,6 +115,27 @@ const Skills = () => (
   </div>
 );
 
+const projectContent = (item: ProjectType) => (
+  <>
+    <div className={styles.imgContainer}>
+      <img src={item.image} className={styles.projectImg} />
+    </div>
+    <div
+      className={styles.projDesc}
+      style={{ cursor: item.link ? "pointer" : undefined }}
+      onClick={() => (item.link ? window.open(item.link) : {})}
+    >
+      <h3>{item.title}</h3>
+      <div className={styles.projectTech}>
+        {item.tech.slice(0, 4).map((tech) => (
+          <h6>{tech}</h6>
+        ))}
+      </div>
+      <h4>{item.desc}</h4>
+    </div>
+  </>
+);
+
 const Projects = () => {
   const { projects } = data;
   return (
@@ -144,24 +143,20 @@ const Projects = () => {
       <div className={styles.sectionHeader}>PROJECTS</div>
       <div className={styles.projectsRow}>
         {projects.slice(0, 4).map((item) => (
-          <div className={styles.projectsBox} key={item.image}>
-            <div className={styles.imgContainer}>
-              <img src={item.image} className={styles.projectImg} />
-            </div>
-            <div
-              className={styles.projDesc}
-              style={{ cursor: item.link ? "pointer" : undefined }}
-              onClick={() => (item.link ? window.open(item.link) : {})}
-            >
-              <h3>{item.title}</h3>
-              <div className={styles.projectTech}>
-                {item.tech.map((tech) => (
-                  <div key={tech} className={styles.techTag}>
-                    {tech}
-                  </div>
-                ))}
+          <div className={styles.projectBox} key={item.image}>
+            <div className={styles.projectBack} key={item.image}>
+              <div
+                className={`${styles.projectContent} ${styles.projectContentLeft}`}
+                key={item.image}
+              >
+                {projectContent(item)}
               </div>
-              <div className={styles.desc}>{item.desc}</div>
+              <div
+                className={`${styles.projectContent} ${styles.projectContentRight}`}
+                key={item.image}
+              >
+                {projectContent(item)}
+              </div>
             </div>
           </div>
         ))}

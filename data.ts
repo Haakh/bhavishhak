@@ -1,4 +1,4 @@
-interface ExperienceType {
+export interface ExperienceType {
   company: string;
   designation: string;
   duration: string;
@@ -46,7 +46,7 @@ const experiences: ExperienceType[] = [
   },
 ];
 
-interface ProjectType {
+export interface ProjectType {
   title: string;
   image?: string;
   link?: string;
