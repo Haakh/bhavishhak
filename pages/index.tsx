@@ -58,58 +58,62 @@ const Home = () => (
 
 const AboutMe = () => (
   <div className={styles.aboutMe} id="about">
-    <div className={styles.tag4}>{renderTags("<body>")}</div>
-    <div className={styles.tag5}>{renderTags("<h1>")}</div>
-    <div className={styles.sectionHeader}>ABOUT ME</div>
-    <div className={styles.sectionDesc}>
-      I am a Full Stack web/mobile application developer with a Bachelors of Engineering in Computer
-      Science and I have been working on React/React Native and numerous other technologies such as
-      TypeScript and NodeJS for 4+ years. I have mostly worked with startups and have been
-      freelancing since last 2 years. I have a strong background in project management and customer
-      relations. I have developed multiple apps from scratch in various domains like healthcare,
-      retail, transport, employee management, etc.
+    <div className={styles.gridPattern}>
+      <div className={styles.tag4}>{renderTags("<body>")}</div>
+      <div className={styles.tag5}>{renderTags("<h1>")}</div>
+      <div className={styles.sectionHeader}>ABOUT ME</div>
+      <div className={styles.sectionDesc}>
+        I am a Full Stack web/mobile application developer with a Bachelors of Engineering in
+        Computer Science and I have been working on React/React Native and numerous other
+        technologies such as TypeScript and NodeJS for 4+ years. I have mostly worked with startups
+        and have been freelancing since last 2 years. I have a strong background in project
+        management and customer relations. I have developed multiple apps from scratch in various
+        domains like healthcare, retail, transport, employee management, etc.
+      </div>
     </div>
   </div>
 );
 
 const Skills = () => (
   <div className={styles.skills} id="skills">
-    <div className={styles.sectionHeader}>SKILLS</div>
-    <div className={styles.skillBox}>
-      <div className={styles.progressBox}>
-        <div className={`${styles.dev1} ${styles.dev}`}>Front-End</div>
-        <div className={`${styles.dev2} ${styles.dev}`}>Back-End</div>
-        <div className={`${styles.dev3} ${styles.dev}`}>Dev-Ops</div>
-      </div>
-      <div className={styles.skillProgress}>
-        {data.skills.map((skillItem) => (
-          <div className={styles.skillCard}>
-            <div className={styles.skillCircle}>
-              <svg xmlns="http://www.w3.org/2000/svg">
-                <circle className={styles.backStroke} cx="70" cy="70" r="60" />
-                <circle
-                  className={[styles.stroke, styles[`html${skillItem.rating}`]].join(" ")}
-                  cx="70"
-                  cy="70"
-                  r="60"
-                  stroke-dashoffset="377"
-                />
-                <circle
-                  className={[styles.hoverCircle, styles[`html${skillItem.rating}`]].join(" ")}
-                  stroke-dashoffset="377"
-                  cx="70"
-                  cy="70"
-                  r="60"
-                />
-                <circle className={styles.transformCircle} cx="70" cy="70" r="60" />
-              </svg>
+    <div className={styles.dotPattern}>
+      <div className={styles.sectionHeader}>SKILLS</div>
+      <div className={styles.skillBox}>
+        <div className={styles.progressBox}>
+          <div className={`${styles.dev1} ${styles.dev}`}>Front-End</div>
+          <div className={`${styles.dev2} ${styles.dev}`}>Back-End</div>
+          <div className={`${styles.dev3} ${styles.dev}`}>Dev-Ops</div>
+        </div>
+        <div className={styles.skillProgress}>
+          {data.skills.map((skillItem) => (
+            <div className={styles.skillCard}>
+              <div className={styles.skillCircle}>
+                <svg xmlns="http://www.w3.org/2000/svg">
+                  <circle className={styles.backStroke} cx="70" cy="70" r="60" />
+                  <circle
+                    className={[styles.stroke, styles[`html${skillItem.rating}`]].join(" ")}
+                    cx="70"
+                    cy="70"
+                    r="60"
+                    stroke-dashoffset="377"
+                  />
+                  <circle
+                    className={[styles.hoverCircle, styles[`html${skillItem.rating}`]].join(" ")}
+                    stroke-dashoffset="377"
+                    cx="70"
+                    cy="70"
+                    r="60"
+                  />
+                  <circle className={styles.transformCircle} cx="70" cy="70" r="60" />
+                </svg>
+              </div>
+              <div className={styles.test1}>
+                <div className={styles.skillText}>{`${skillItem.title}`}</div>
+                <div className={styles.skillRating}>{`${skillItem.rating}`}%</div>
+              </div>
             </div>
-            <div className={styles.test1}>
-              <div className={styles.skillText}>{`${skillItem.title}`}</div>
-              <div className={styles.skillRating}>{`${skillItem.rating}`}%</div>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   </div>
@@ -140,31 +144,33 @@ const Projects = () => {
   const { projects } = data;
   return (
     <div className={styles.projects} id="projects">
-      <div className={styles.sectionHeader}>PROJECTS</div>
-      <div className={styles.projectsRow}>
-        {projects.slice(0, 4).map((item) => (
-          <div className={styles.projectBox} key={item.image}>
-            <div className={styles.projectBack} key={item.image}>
-              <div
-                className={`${styles.projectContent} ${styles.projectContentLeft}`}
-                key={item.image}
-              >
-                {projectContent(item)}
-              </div>
-              <div
-                className={`${styles.projectContent} ${styles.projectContentRight}`}
-                key={item.image}
-              >
-                {projectContent(item)}
+      <div className={styles.gridPattern}>
+        <div className={styles.sectionHeader}>PROJECTS</div>
+        <div className={styles.projectsRow}>
+          {projects.slice(0, 4).map((item) => (
+            <div className={styles.projectBox} key={item.image}>
+              <div className={styles.projectBack} key={item.image}>
+                <div
+                  className={`${styles.projectContent} ${styles.projectContentLeft}`}
+                  key={item.image}
+                >
+                  {projectContent(item)}
+                </div>
+                <div
+                  className={`${styles.projectContent} ${styles.projectContentRight}`}
+                  key={item.image}
+                >
+                  {projectContent(item)}
+                </div>
               </div>
             </div>
+          ))}
+        </div>
+        <div className={styles.flipButton}>
+          <div className={styles.viewMore}>
+            <div className={styles.viewMoreFront}>VIEW MORE</div>
+            <div className={styles.viewMoreBack}>VIEW MORE</div>
           </div>
-        ))}
-      </div>
-      <div className={styles.flipButton}>
-        <div className={styles.viewMore}>
-          <div className={styles.viewMoreFront}>VIEW MORE</div>
-          <div className={styles.viewMoreBack}>VIEW MORE</div>
         </div>
       </div>
     </div>
@@ -176,34 +182,35 @@ const Experiences = () => {
 
   return (
     <div className={styles.experience} id="experiences">
-      <div className={styles.sectionHeader}>Experience</div>
-      <div className={styles.expDivider} />
-      <div className={styles.timeline}>
-        {experiences.map((exp, index) => {
-          const classN = styles[`box${index}`];
-          return (
-            <div
-              key={exp.company}
-              className={`${styles.expContainer} ${
-                (index + 1) % 2 ? styles.left : styles.right
-              } ${classN}`}
-            >
+      <div className={styles.experienceContent}>
+        <div className={styles.sectionHeader}>Experience</div>
+        <div className={styles.timeline}>
+          {experiences.map((exp, index) => {
+            const classN = styles[`box${index}`];
+            return (
               <div
-                className={`${styles.testTime} ${
-                  (index + 1) % 2 ? styles.leftTime : styles.rightTime
-                }`}
+                key={exp.company}
+                className={`${styles.expContainer} ${
+                  (index + 1) % 2 ? styles.left : styles.right
+                } ${classN}`}
               >
-                {exp.duration}
+                <div
+                  className={`${styles.testTime} ${
+                    (index + 1) % 2 ? styles.leftTime : styles.rightTime
+                  }`}
+                >
+                  {exp.duration}
+                </div>
+                <div className={styles.content}>
+                  <h2>{exp.company}</h2>
+                  <h3>{exp.designation}</h3>
+                  <h4>{exp.duration}</h4>
+                  <p>{exp.desc}</p>
+                </div>
               </div>
-              <div className={styles.content}>
-                <h2>{exp.company}</h2>
-                <h3>{exp.designation}</h3>
-                <h4>{exp.duration}</h4>
-                <p>{exp.desc}</p>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );
@@ -211,6 +218,8 @@ const Experiences = () => {
 
 const Contacts = () => (
   <div className={styles.contacts} id="contacts">
+    <div className={styles.tag6}>{renderTags("</body>")}</div>
+    <div className={styles.tag7}>{renderTags("</html>")}</div>
     <div className={styles.sectionHeader}>Contact Me</div>
     <div className={styles.contactInfo}>
       <a className={styles.contactTitle} href="mailto:hakbhavish@gmail.com">

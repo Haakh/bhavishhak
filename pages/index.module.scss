@@ -1,3 +1,27 @@
+$backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
+  linear-gradient(90deg, transparent 99%, var(--bg-cover) 1%);
+
+.gridPattern {
+  padding: 100px 200px;
+  background-color: transparent;
+  background-image: $backgroundGrid;
+  background-size: 200px 200px;
+}
+
+.dotPattern {
+  padding: 100px 200px;
+  background-color: transparent;
+  background-size: 50px 50px;
+  background-image: radial-gradient(var(--bg-color) 3%, transparent 0);
+}
+
+.flexCenter {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex: 1;
+}
+
 .container {
   display: flex;
   flex: 1;
@@ -53,20 +77,24 @@
     bottom: -6%;
     left: 39%;
   }
+  .tag6 {
+    position: relative;
+    top: 50px;
+    left: -33%;
+  }
+  .tag7 {
+    position: relative;
+    top: 250px;
+    left: -43%;
+  }
 
   .home {
-    justify-content: center;
-    align-items: center;
+    @extend .flexCenter;
     height: 90vh;
-    display: flex;
-    flex: 1;
     flex-direction: row;
 
     .myPic {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @extend .flexCenter;
 
       .profilePic {
         width: 400px;
@@ -87,17 +115,17 @@
       }
 
       .section1 {
-        font-size: 46px;
+        font-size: var(--heading);
         font-weight: 900;
         line-height: 1em;
         margin-bottom: 40px;
       }
       .section2 {
-        font-size: 25px;
+        font-size: var(--sub-heading);
         margin-bottom: 40px;
       }
       .sectionDesc {
-        font-size: 18px;
+        font-size: var(--text-desc);
         margin-bottom: 40px;
       }
       .row {
@@ -127,7 +155,6 @@
 
   .aboutMe {
     background-color: var(--about-me);
-    padding: 100px 200px;
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -136,7 +163,6 @@
 
   .skills {
     background-color: var(--skills);
-    padding: 100px 200px;
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -357,7 +383,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #2c1f4e;
 
     .projectsRow {
       display: flex;
@@ -578,14 +603,20 @@
   .experience {
     background-color: var(--experience);
     display: flex;
+    flex: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 
-    .expDivider {
-      border-bottom: 1px solid black;
-      width: 1000%;
+    .experienceContent {
+      @extend .dotPattern;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      align-self: stretch;
     }
 
     .timeline {
@@ -684,8 +715,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 60px;
-    padding-bottom: 20px;
+    padding-bottom: 60px;
 
     .contactInfo {
       display: flex;

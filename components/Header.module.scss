@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: var(--bg-color);
+  background-color: var(--about-me);
 }
 
 .headerClass {
@@ -28,6 +28,7 @@
       font-size: 17px;
       background-image: none !important;
     }
+    // TODO: active a show underlined with active color
     a.active {
       background-color: #4caf50;
       color: var(--text-color);
