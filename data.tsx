@@ -1,3 +1,9 @@
+import { FaReact, FaHtml5, FaAws, FaNodeJs, FaDocker } from "react-icons/fa";
+import { AiTwotoneFire } from "react-icons/ai";
+import { DiMongodb, DiPostgresql, DiHeroku } from "react-icons/di";
+import Typescript from "assets/typescript.svg";
+import ElasticSearch from "assets/elasticsearch.svg";
+
 export interface ExperienceType {
   company: string;
   designation: string;
@@ -9,7 +15,7 @@ export interface ExperienceType {
 const experiences: ExperienceType[] = [
   {
     company: "Freelance",
-    designation: "Freelancer - Web/Mobile App Developer",
+    designation: "Full Stack Web/App Developer",
     duration: "Feb'19 - Now",
     logoImage: "freelancer",
     desc: `Self-employed, work for myself, rather than for a company.
@@ -180,54 +186,67 @@ const skills = [
   {
     title: "React Native",
     rating: "95",
+    icon: <FaReact />,
   },
   {
     title: "Firebase",
     rating: "95",
+    icon: <AiTwotoneFire />,
   },
   {
     title: "HTML5/CSS3",
     rating: "90",
+    icon: <FaHtml5 />,
   },
   {
     title: "React.js",
     rating: "90",
+    icon: <FaReact />,
   },
   {
     title: "Amazon S3",
     rating: "90",
+    icon: <FaAws />,
   },
   {
     title: "AppSync",
     rating: "90",
+    icon: <FaAws />,
   },
   {
     title: "Typescript",
     rating: "85",
+    icon: <Typescript />,
   },
   {
     title: "Node.js",
     rating: "80",
+    icon: <FaNodeJs />,
   },
   {
     title: "MongoDB",
     rating: "80",
+    icon: <DiMongodb />,
   },
   {
     title: "PostgreSql",
     rating: "80",
+    icon: <DiPostgresql />,
   },
   {
     title: "ElasticSearch",
     rating: "80",
+    icon: <ElasticSearch />,
   },
   {
     title: "Heroku",
     rating: "70",
+    icon: <DiHeroku />,
   },
   {
     title: "Docker",
     rating: "65",
+    icon: <FaDocker />,
   },
 ];
 

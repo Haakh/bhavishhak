@@ -107,7 +107,8 @@ const Skills = () => (
                   <circle className={styles.transformCircle} cx="70" cy="70" r="60" />
                 </svg>
               </div>
-              <div className={styles.test1}>
+              <div className={styles.circleContent}>
+                <div className={styles.skillIcon}>{skillItem.icon}</div>
                 <div className={styles.skillText}>{`${skillItem.title}`}</div>
                 <div className={styles.skillRating}>{`${skillItem.rating}`}%</div>
               </div>
@@ -135,7 +136,6 @@ const projectContent = (item: ProjectType) => (
           <h6>{tech}</h6>
         ))}
       </div>
-      <h4>{item.desc}</h4>
     </div>
   </>
 );
@@ -144,7 +144,7 @@ const Projects = () => {
   const { projects } = data;
   return (
     <div className={styles.projects} id="projects">
-      <div className={styles.gridPattern}>
+      <div className={styles.projectsContent}>
         <div className={styles.sectionHeader}>PROJECTS</div>
         <div className={styles.projectsRow}>
           {projects.slice(0, 4).map((item) => (
@@ -183,7 +183,7 @@ const Experiences = () => {
   return (
     <div className={styles.experience} id="experiences">
       <div className={styles.experienceContent}>
-        <div className={styles.sectionHeader}>Experience</div>
+        <div className={styles.expHeader}>EXPERIENCE</div>
         <div className={styles.timeline}>
           {experiences.map((exp, index) => {
             const classN = styles[`box${index}`];
@@ -195,16 +195,17 @@ const Experiences = () => {
                 } ${classN}`}
               >
                 <div
-                  className={`${styles.testTime} ${
+                  className={`${styles.timeContainer} ${
                     (index + 1) % 2 ? styles.leftTime : styles.rightTime
                   }`}
                 >
                   {exp.duration}
                 </div>
                 <div className={styles.content}>
-                  <h2>{exp.company}</h2>
+                  <h2>
+                    <a href={exp.link}>{exp.company}</a>
+                  </h2>
                   <h3>{exp.designation}</h3>
-                  <h4>{exp.duration}</h4>
                   <p>{exp.desc}</p>
                 </div>
               </div>

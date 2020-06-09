@@ -2,9 +2,12 @@ $montserrat: "Montserrat", sans-serif;
 $laBelleAurore: "La Belle Aurore", sans-serif;
 
 :root {
+  --primary: #ffffff;
   --bg-color: #fbfaf8;
   --bg-sec-color: #feffff;
   --bg-hover-color: #c5c0b6;
+  --card-color: #151921;
+  --card-color2: ##2e333b;
 
   --text-color: #292a32;
   --text-hover-color: #fbfaf8;
@@ -29,9 +32,12 @@ $laBelleAurore: "La Belle Aurore", sans-serif;
 }
 
 [data-theme="dark"] {
+  --primary: #000000;
   --bg-color: #292a32;
   --bg-sec-color: #2c2f2e;
   --bg-hover-color: #1c1d20;
+  --card-color: #151921;
+  --card-color2: ##2e333b;
 
   --text-color: #fbfaf8;
   --text-hover-color: #fbfaf8;
