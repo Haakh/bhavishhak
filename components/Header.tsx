@@ -5,6 +5,7 @@ import { FaMoon } from "react-icons/fa";
 import { WiDaySunny } from "react-icons/wi";
 import styles from "./Header.module.scss";
 import Vector from "assets/vector.svg";
+import Initials from "assets/initials.svg";
 
 const Header = (): JSX.Element => {
   const [darkMode, toggleMode] = useState(false);
@@ -65,6 +66,9 @@ const Header = (): JSX.Element => {
 
   const menu = (
     <header id="header" className={styles.headerClass}>
+      <div className={styles.logo}>
+        <Initials height={40} width={40} />
+      </div>
       <div className={styles.topnav}>
         <div className={styles.item}>
           <a href="#about">ABOUT</a>

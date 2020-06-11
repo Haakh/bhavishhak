@@ -1,8 +1,11 @@
-$backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
-  linear-gradient(90deg, transparent 99%, var(--bg-cover) 1%);
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
+$quicksand: "Quicksand", sans-serif;
+
+$backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
+  linear-gradient(90deg, transparent 99%, var(--grid-lines) 1%);
 
 .gridPattern {
-  padding: 100px 200px;
+  padding: 200px 200px;
   background-color: transparent;
   background-image: $backgroundGrid;
   background-size: 200px 200px;
@@ -12,7 +15,18 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
   padding: 100px 200px;
   background-color: transparent;
   background-size: 50px 50px;
-  background-image: radial-gradient(var(--bg-color) 3%, transparent 0);
+  background-image: radial-gradient(var(--dots) 3%, transparent 0);
+}
+
+.divider {
+  height: 100px;
+  display: flex;
+  flex: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
 }
 
 .flexCenter {
@@ -39,10 +53,12 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
   }
   .sectionDesc {
-    font-size: 22px;
+    font-size: 20px;
     text-align: left;
+    font-family: $quicksand;
   }
   .background {
     z-index: 200;
@@ -99,6 +115,7 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
       .profilePic {
         width: 400px;
         border-radius: 50%;
+        box-shadow: var(--smooth-shadow-def);
       }
     }
 
@@ -159,6 +176,46 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
     flex: 1;
     flex-direction: column;
     align-items: center;
+    position: relative;
+
+    .dividerLine {
+      @extend .divider;
+      background-image: -webkit-linear-gradient(274deg, var(--about-me) 50%, var(--skills) 50%);
+    }
+
+    .aboutDesc {
+      @extend .flexCenter;
+      margin-top: 120px;
+
+      .aboutDetails {
+        @extend .flexCenter;
+        flex: 2;
+        justify-content: start;
+        align-items: flex-start;
+        flex-direction: column;
+        margin-right: 50px;
+
+        div {
+          font-size: 18px;
+          font-weight: 300;
+          p {
+            font-size: 18px;
+          }
+        }
+      }
+      .aboutImg {
+        @extend .flexCenter;
+        flex-direction: column;
+        position: relative;
+        border-radius: 50%;
+        border: 12px solid var(--text-color);
+        box-shadow: var(--smooth-shadow-def);
+      }
+      .profilePic2 {
+        width: 350px;
+        border-radius: 50%;
+      }
+    }
   }
 
   .skills {
@@ -167,6 +224,12 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
     flex: 1;
     flex-direction: column;
     align-items: center;
+    position: relative;
+
+    .dividerLine {
+      @extend .divider;
+      background-image: -webkit-linear-gradient(94deg, var(--projects) 50%, var(--skills) 50%);
+    }
 
     .skillBox {
       display: flex;
@@ -182,38 +245,55 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
         padding-bottom: 30px;
 
         .dev {
-          height: 30px;
+          height: 35px;
           display: flex;
           align-items: center;
           justify-content: center;
-          background: #000;
+          background: var(--bg-color);
           position: relative;
+          transition: flex 0.3s ease-in-out;
         }
 
         .dev1 {
           flex: 5;
           margin-right: 25px;
+          background: var(--bar-color);
         }
         .dev1:after {
           @extend .devAfter;
+          background: var(--bar-color);
+        }
+        .dev1:hover {
+          flex: 6;
         }
 
         .dev2 {
           flex: 3;
           margin-right: 25px;
+          background: var(--bar-color2);
         }
         .dev2:after {
           @extend .devAfter;
+          background: var(--bar-color2);
         }
         .dev2:before {
           @extend .devBefore;
+          background: var(--bar-color2);
+        }
+        .dev2:hover {
+          flex: 4;
         }
 
         .dev3 {
           flex: 2;
+          background: var(--bar-color3);
         }
         .dev3:before {
           @extend .devBefore;
+          background: var(--bar-color3);
+        }
+        .dev3:hover {
+          flex: 3;
         }
 
         .devAfter {
@@ -223,7 +303,6 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
           height: 100%;
           top: 0;
           right: 0;
-          background: #000;
           transform-origin: bottom left;
           -ms-transform: skew(-30deg, 0deg);
           -webkit-transform: skew(-30deg, 0deg);
@@ -232,11 +311,10 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
         .devBefore {
           content: " ";
           position: absolute;
-          width: 18px;
+          width: 20px;
           height: 100%;
           top: 0;
-          left: -18px;
-          background: #000;
+          left: -20px;
           transform-origin: bottom left;
           -ms-transform: skew(-30deg, 0deg);
           -webkit-transform: skew(-30deg, 0deg);
@@ -276,7 +354,7 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
             align-items: center;
 
             .backStroke {
-              stroke: black;
+              stroke: var(--skill-back);
               stroke-dasharray: 377;
               stroke-dashoffset: 0;
               stroke-width: 10px;
@@ -284,7 +362,7 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
             }
 
             .hoverCircle {
-              stroke: white;
+              stroke: var(--skill-hover);
               stroke-width: 10px;
               stroke-dasharray: 377;
               fill: transparent;
@@ -297,7 +375,7 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
               transform: scale(0.9, 0.9);
             }
             .stroke {
-              stroke: grey;
+              stroke: var(--skill-circle-back);
               stroke-width: 10px;
               stroke-dasharray: 377;
               fill: transparent;
@@ -336,8 +414,8 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
             height: 100px;
 
             .skillIcon {
-              color: grey;
-              fill: grey;
+              color: var(--text-color);
+              fill: var(--text-color);
               font-size: 22px;
               margin-bottom: 5px;
             }
@@ -373,11 +451,11 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
             }
           }
           .transformCircle {
-            fill: #000;
+            fill: var(--skill-back);
             transform: scale(1, 1);
             transition: transform 0.2s;
           }
-          .test1 {
+          .circleContent {
             transform: scale(1.1, 1.1);
             transition: transform 0.2s;
           }
@@ -390,9 +468,12 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
     background-color: var(--projects);
     display: flex;
     flex: 1;
+    position: relative;
 
-    $cardColor: var(--card-color);
-    $cardColorSec: var(--card-color2);
+    .dividerLine {
+      @extend .divider;
+      background-image: -webkit-linear-gradient(86deg, var(--experience) 50%, var(--projects) 50%);
+    }
 
     .projectsContent {
       @extend .gridPattern;
@@ -419,14 +500,14 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
         animation: animateIn 0.35s both ease-in-out;
 
         .projectBack {
-          background-color: #d84c6e;
+          background-color: var(--project-card-back);
           display: block;
           width: 100%;
           height: 100%;
 
           .projectContent {
-            background-color: $cardColor;
-            color: #1a1a1a;
+            background-color: var(--project-card-color);
+            color: var(--project-card-content);
             position: absolute;
             top: 0;
             right: 0;
@@ -467,7 +548,7 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
           box-shadow: var(--smooth-shadow2);
         }
         .projectBack:hover .projectContentRight {
-          background-color: $cardColorSec;
+          background-color: var(--project-card-color);
           transform: rotateY(-50deg);
         }
 
@@ -483,7 +564,7 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
           flex: 2;
           overflow: hidden;
           z-index: 201;
-          background-color: $cardColor;
+          background-color: var(--project-card-color);
 
           .projectImg {
             width: 100%;
@@ -497,7 +578,7 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
           display: flex;
           flex: 1;
           flex-direction: column;
-          background-color: $cardColor;
+          background-color: var(--project-card-color);
           padding: 10px 10px 5px 15px;
           color: var(--text-color);
 
@@ -508,8 +589,8 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
             margin-bottom: -10px;
 
             h6 {
-              border: 0.5px solid #333;
-              background-color: #12161e;
+              border: 0.5px solid var(--project-tag-border);
+              background-color: var(--project-tag);
               padding: 5px 8px;
               margin-right: 3px;
               border-radius: 15px;
@@ -624,6 +705,12 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    position: relative;
+
+    .dividerLine {
+      @extend .divider;
+      background-image: -webkit-linear-gradient(94deg, var(--contacts) 50%, var(--experience) 50%);
+    }
 
     .experienceContent {
       @extend .dotPattern;
@@ -634,30 +721,40 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
       align-items: center;
       justify-content: center;
       align-self: stretch;
-      border-bottom: 0.5px solid var(--text-color);
+      position: relative;
+    }
+    .experienceBox {
+      position: absolute;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 0.5px solid var(--exp-line);
+      height: 100px;
+      width: 80%;
     }
 
     .expHeader {
-      padding: 70px 70px;
-      font-size: 40px;
+      padding: 100px 70px;
+      font-size: 46px;
+      font-weight: 600;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: transparent;
       width: 100%;
-      border-bottom: 0.5px solid var(--text-color);
     }
     .timeline {
       position: relative;
       margin: 0 auto;
       padding: 50px 0;
+      margin-top: -75px;
+      margin-bottom: 80px;
     }
     // center line
     .timeline::before {
       content: "";
       position: absolute;
       width: 2px;
-      background-color: var(--text-color);
+      background-color: var(--exp-line);
       top: 0;
       bottom: 0;
       right: 50%;
@@ -679,7 +776,7 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
       position: relative;
       background-color: inherit;
       width: 400px;
-      background-color: #1b222f;
+      background-color: var(--exp-card-container);
       box-shadow: var(--smooth-shadow-def);
     }
     .expContainer::after {
@@ -687,7 +784,7 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
       position: absolute;
       width: 60px;
       height: 2px;
-      background-color: var(--text-color);
+      background-color: var(--exp-line);
       top: 30%;
       z-index: 1;
     }
@@ -697,8 +794,8 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
       width: 14px;
       height: 14px;
       border-radius: 7px;
-      background-color: var(--text-color);
-      top: 28%;
+      background-color: var(--exp-line);
+      top: 27.5%;
       z-index: 1;
     }
     .left {
@@ -749,16 +846,17 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
       }
       p {
         font-size: 14px;
+        line-height: 1.7em;
       }
     }
     .box1 {
-      margin-top: -80px;
+      margin-top: -20px;
     }
     .box2 {
-      margin-top: -80px;
+      margin-top: -10px;
     }
     .box3 {
-      margin-top: -100px;
+      margin-top: -10px;
     }
   }
 
@@ -769,6 +867,21 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
     justify-content: center;
     align-items: center;
     padding-bottom: 60px;
+    position: relative;
+
+    .contactBox {
+      backdrop-filter: blur(2px);
+      position: absolute;
+      display: flex;
+      align-self: stretch;
+      flex: 1;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 400px;
+      width: 70%;
+      border: 0.5px solid var(--exp-line);
+    }
 
     .contactInfo {
       display: flex;
@@ -812,7 +925,7 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
       height: 45px;
       border-radius: 100%;
       display: block;
-      background: linear-gradient(45deg, #ff003c, #c648c8);
+      background: linear-gradient(45deg, #6181a8, #415875);
       transition: all 265ms ease-out;
     }
     .column:hover:before {
@@ -824,8 +937,8 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--bg-cover) 1%),
         transform: scale(2.2);
         -ms-transform: scale(2.2);
         -webkit-transform: scale(2.2);
-        color: #ff003c;
-        background: -webkit-linear-gradient(45deg, #ff003c, #c648c8);
+        color: #6181a8;
+        background: -webkit-linear-gradient(45deg, #6181a8, #415875);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;

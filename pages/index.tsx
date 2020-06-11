@@ -23,9 +23,8 @@ const Home = () => (
     </div>
 
     <div className={styles.myDesc}>
-      <div className={styles.section1}>Hello, I'm Bhavish</div>
+      <div className={styles.section1}>Bhavish Hak</div>
       <div className={styles.section2}>Full Stack Developer | Freelancer</div>
-      <p className={styles.sectionDesc}>I make cool Mobile Apps and Websites.</p>
       <div className={styles.row}>
         <div
           className={styles.iconContainer}
@@ -62,15 +61,29 @@ const AboutMe = () => (
       <div className={styles.tag4}>{renderTags("<body>")}</div>
       <div className={styles.tag5}>{renderTags("<h1>")}</div>
       <div className={styles.sectionHeader}>ABOUT ME</div>
-      <div className={styles.sectionDesc}>
-        I am a Full Stack web/mobile application developer with a Bachelors of Engineering in
-        Computer Science and I have been working on React/React Native and numerous other
-        technologies such as TypeScript and NodeJS for 4+ years. I have mostly worked with startups
-        and have been freelancing since last 2 years. I have a strong background in project
-        management and customer relations. I have developed multiple apps from scratch in various
-        domains like healthcare, retail, transport, employee management, etc.
+      <div className={styles.aboutDesc}>
+        <div className={styles.aboutDetails}>
+          <h1>Hi, I'm Bhavish</h1>
+          <h2>I'm a Passionate Web/Mobile Developer</h2>
+          <div className={styles.sectionDesc}>
+            I am a Full Stack web/mobile application developer with a Bachelors of Engineering in
+            Computer Science and I have been working on React/React Native and numerous other
+            technologies such as NodeJS and AWS for 4+ years. I have mostly worked with startups and
+            have been freelancing since last 2 years. I have a strong background in project
+            management and customer relations. I have developed multiple apps from scratch in
+            various domains like healthcare, retail, transport, employee management, etc.
+            <p>
+              I Started freelancing to work remotely on a diverse set of projects and to explore the
+              world.
+            </p>
+          </div>
+        </div>
+        <div className={styles.aboutImg}>
+          <img alt="bhavish" className={styles.profilePic2} src="/bhavish2.jpg" />
+        </div>
       </div>
     </div>
+    <div className={styles.dividerLine} />
   </div>
 );
 
@@ -86,7 +99,7 @@ const Skills = () => (
         </div>
         <div className={styles.skillProgress}>
           {data.skills.map((skillItem) => (
-            <div className={styles.skillCard}>
+            <div className={styles.skillCard} key={skillItem.title}>
               <div className={styles.skillCircle}>
                 <svg xmlns="http://www.w3.org/2000/svg">
                   <circle className={styles.backStroke} cx="70" cy="70" r="60" />
@@ -95,11 +108,11 @@ const Skills = () => (
                     cx="70"
                     cy="70"
                     r="60"
-                    stroke-dashoffset="377"
+                    strokeDashoffset="377"
                   />
                   <circle
                     className={[styles.hoverCircle, styles[`html${skillItem.rating}`]].join(" ")}
-                    stroke-dashoffset="377"
+                    strokeDashoffset="377"
                     cx="70"
                     cy="70"
                     r="60"
@@ -117,6 +130,7 @@ const Skills = () => (
         </div>
       </div>
     </div>
+    <div className={styles.dividerLine} />
   </div>
 );
 
@@ -133,7 +147,7 @@ const projectContent = (item: ProjectType) => (
       <h3>{item.title}</h3>
       <div className={styles.projectTech}>
         {item.tech.slice(0, 4).map((tech) => (
-          <h6>{tech}</h6>
+          <h6 key={tech}>{tech}</h6>
         ))}
       </div>
     </div>
@@ -148,18 +162,12 @@ const Projects = () => {
         <div className={styles.sectionHeader}>PROJECTS</div>
         <div className={styles.projectsRow}>
           {projects.slice(0, 4).map((item) => (
-            <div className={styles.projectBox} key={item.image}>
-              <div className={styles.projectBack} key={item.image}>
-                <div
-                  className={`${styles.projectContent} ${styles.projectContentLeft}`}
-                  key={item.image}
-                >
+            <div className={styles.projectBox} key={item.title}>
+              <div className={styles.projectBack}>
+                <div className={`${styles.projectContent} ${styles.projectContentLeft}`}>
                   {projectContent(item)}
                 </div>
-                <div
-                  className={`${styles.projectContent} ${styles.projectContentRight}`}
-                  key={item.image}
-                >
+                <div className={`${styles.projectContent} ${styles.projectContentRight}`}>
                   {projectContent(item)}
                 </div>
               </div>
@@ -173,6 +181,7 @@ const Projects = () => {
           </div>
         </div>
       </div>
+      <div className={styles.dividerLine} />
     </div>
   );
 };
@@ -184,6 +193,7 @@ const Experiences = () => {
     <div className={styles.experience} id="experiences">
       <div className={styles.experienceContent}>
         <div className={styles.expHeader}>EXPERIENCE</div>
+        <div className={styles.experienceBox}></div>
         <div className={styles.timeline}>
           {experiences.map((exp, index) => {
             const classN = styles[`box${index}`];
@@ -213,15 +223,17 @@ const Experiences = () => {
           })}
         </div>
       </div>
+      <div className={styles.dividerLine} />
     </div>
   );
 };
 
 const Contacts = () => (
   <div className={styles.contacts} id="contacts">
+    <div className={styles.contactBox}></div>
     <div className={styles.tag6}>{renderTags("</body>")}</div>
     <div className={styles.tag7}>{renderTags("</html>")}</div>
-    <div className={styles.sectionHeader}>Contact Me</div>
+    <div className={styles.sectionHeader}>CONTACT ME</div>
     <div className={styles.contactInfo}>
       <a className={styles.contactTitle} href="mailto:hakbhavish@gmail.com">
         <div className={styles.column}>
@@ -258,7 +270,7 @@ const renderTags = (text) => (
 
 const IndexPage = (): JSX.Element => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="root">
       <Head>
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=La+Belle+Aurore" rel="stylesheet" />

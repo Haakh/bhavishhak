@@ -12,6 +12,13 @@
   display: flex;
   flex-direction: row;
 
+  .logo {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  }
+
   .topnav {
     height: 100%;
     display: flex;

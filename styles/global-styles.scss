@@ -1,30 +1,50 @@
 $montserrat: "Montserrat", sans-serif;
 $laBelleAurore: "La Belle Aurore", sans-serif;
 
+//TODO: add inner shadows to images
 :root {
   --primary: #ffffff;
   --bg-color: #fbfaf8;
   --bg-sec-color: #feffff;
   --bg-hover-color: #c5c0b6;
-  --card-color: #151921;
-  --card-color2: ##2e333b;
+  --card-color: #eb83df;
+  --card-color2: ##484c4b;
+  --bar-color: #cecede;
+  --bar-color2: #c2c2d6;
+  --bar-color3: #b6b6ce;
+  --grid-lines: rgba(0, 0, 0, 0.01);
+  --dots: #c7c4bd;
 
   --text-color: #292a32;
+  --text-color-test-it: #626262;
   --text-hover-color: #fbfaf8;
   --text-shade-color: #747783;
   --highlights: #0050fb;
 
-  --about-me: #3b3355;
-  --skills: #9e8650;
-  --projects: #22333b;
-  --experience: #2f1000;
-  --contacts: #313e50;
+  --about-me: #f0fdfa;
+  --skills: #d8f4ef;
+  --projects: #f0fdfa;
+  --experience: #d8f4ef;
+  --contacts: #ebfaf7;
 
-  --gradient-start: #c5c0b6;
-  --gradient-end: #fbfaf8;
+  --skill-back: #ecfaf7;
+  --skill-circle-back: #878c8f;
+  --skill-hover: #414948;
+
+  --project-card-color: #b3d3df;
+  --project-card-back: #6692a2;
+  --project-card-content: #443838;
+  --project-tag: #eeeeee;
+  --project-tag-border: #555555;
+
+  --exp-header: #424874;
+  --exp-card-container: #f4f4f6;
+  --exp-line: #a5afad;
+
+  --gradient-start: #e0e0f5;
+  --gradient-end: #c1c1eb;
   --smooth-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   --smooth-shadow-def: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  --bg-cover: rgba(255, 255, 255, 0.009);
 
   --heading: 46px;
   --sub-heading: 25px;
@@ -36,8 +56,13 @@ $laBelleAurore: "La Belle Aurore", sans-serif;
   --bg-color: #292a32;
   --bg-sec-color: #2c2f2e;
   --bg-hover-color: #1c1d20;
-  --card-color: #151921;
-  --card-color2: ##2e333b;
+  --card-color: #1b232f;
+  --card-color2: #2e333b;
+  --bar-color: #36454f;
+  --bar-color2: #2b373f;
+  --bar-color3: #263037;
+  --grid-lines: rgba(255, 255, 255, 0.009);
+  --dots: #292a32;
 
   --text-color: #fbfaf8;
   --text-hover-color: #fbfaf8;
@@ -50,10 +75,22 @@ $laBelleAurore: "La Belle Aurore", sans-serif;
   --experience: #141820;
   --contacts: #12151c;
 
+  --skill-back: #000000;
+  --skill-circle-back: #777777;
+  --skill-hover: #ffffff;
+
+  --project-card-back: #747783;
+  --project-card-content: #1a1a1a;
+  --project-tag: #12161e;
+  --project-tag-border: #333333;
+
+  --exp-card-container: #1b222f;
+  --exp-line: #b0afae;
+  // --exp-line: #fbfaf8;
+
   --gradient-start: #090c08;
   --gradient-end: #121810;
   --smooth-shadow: 0 10px 20px rgba(255, 255, 255, 0.19), 0 6px 6px rgba(255, 255, 255, 0.23);
-  --bg-cover: rgba(255, 255, 255, 0.009);
 }
 
 html {

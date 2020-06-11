@@ -19,7 +19,7 @@ const experiences: ExperienceType[] = [
     duration: "Feb'19 - Now",
     logoImage: "freelancer",
     desc: `Self-employed, work for myself, rather than for a company.
-     I take on contract work for companies and organizations usually on hourly basis (can be fixed price at times), based all across the globe. Have developed and delivered multiple mobile and web applications.`,
+     I take on contract work for companies and organizations usually on hourly basis, based all across the globe. Have developed and delivered multiple mobile and web applications.`,
   },
   {
     company: "Gsynergy",
@@ -36,14 +36,13 @@ const experiences: ExperienceType[] = [
     duration: "Mar'18 - Apr'19",
     logoImage: "doctalk",
     link: "https://www.crunchbase.com/organization/doctalk",
-    desc: `Developed backend in ElasticSearch Stack deployed on AWS ELK and Firebase/Firestore and NodeJS hosted on google Cloud.
-    Developed 3 React Native Apps from scratch for appointment scheduling, business reviews management.
-    Developed an internal Employee management Web App to manage employees(Sales Managers) daily tasks integrated with google calendar.`,
+    desc: `Independently developed ElasticSearch Stack on AWS ELK. Worked on Firebase/Firestore and NodeJS.
+    Developed React Apps from scratch for appointment scheduling, business reviews management, Employee management etc.`,
   },
   {
     company: "Geekyants",
     designation: "Full Stack Developer",
-    duration: "16 - Mar'18",
+    duration: "Oct'16 - Mar'18",
     logoImage: "geekyants",
     link: "https://geekyants.com/",
     desc: `Worked on designed & developing mobile and web applications Full Stack and lead a team of
