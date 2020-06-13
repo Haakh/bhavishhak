@@ -14,8 +14,10 @@ const Header = (): JSX.Element => {
 
   useEffect(() => {
     watchWindow();
-    const persistedDarkMode = JSON.parse(localStorage.getItem("DARK_MODE")) as boolean;
-    if (persistedDarkMode === true) {
+    let persistedDarkMode = JSON.parse(localStorage.getItem("DARK_MODE")) as boolean;
+    const osDarkMode =
+      (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) || false;
+    if (persistedDarkMode || osDarkMode) {
       document.documentElement.setAttribute("data-theme", "dark");
     }
     toggleMode(persistedDarkMode);

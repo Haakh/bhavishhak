@@ -57,7 +57,7 @@ const Home = () => (
 
 const AboutMe = () => (
   <div className={styles.aboutMe} id="about">
-    <div className={styles.gridPattern}>
+    <div className={styles.aboutContent}>
       <div className={styles.tag4}>{renderTags("<body>")}</div>
       <div className={styles.tag5}>{renderTags("<h1>")}</div>
       <div className={styles.sectionHeader}>ABOUT ME</div>
@@ -89,10 +89,10 @@ const AboutMe = () => (
 
 const Skills = () => (
   <div className={styles.skills} id="skills">
-    <div className={styles.dotPattern}>
+    <div className={styles.skillsContent}>
       <div className={styles.sectionHeader}>SKILLS</div>
       <div className={styles.skillBox}>
-        <div className={styles.progressBox}>
+        <div className={styles.progressBox} id="test">
           <div className={`${styles.dev1} ${styles.dev}`}>Front-End</div>
           <div className={`${styles.dev2} ${styles.dev}`}>Back-End</div>
           <div className={`${styles.dev3} ${styles.dev}`}>Dev-Ops</div>
@@ -269,6 +269,20 @@ const renderTags = (text) => (
 );
 
 const IndexPage = (): JSX.Element => {
+  // if (typeof window !== "undefined") {
+  //   let options = {
+  //     root: document.querySelector("#scrollArea"),
+  //     rootMargin: "200px",
+  //     threshold: 1.0,
+  //   };
+
+  //   let observer = new IntersectionObserver(() => console.log("Hello intersection"), options);
+
+  //   let target = document.getElementById("test");
+  //   console.log("target", target);
+  //   observer.observe(target);
+  // }
+
   return (
     <div className={styles.container} id="root">
       <Head>

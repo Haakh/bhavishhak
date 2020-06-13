@@ -5,21 +5,21 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
   linear-gradient(90deg, transparent 99%, var(--grid-lines) 1%);
 
 .gridPattern {
-  padding: 200px 200px;
+  padding: 80px 200px 250px 200px;
   background-color: transparent;
   background-image: $backgroundGrid;
   background-size: 200px 200px;
 }
 
 .dotPattern {
-  padding: 100px 200px;
+  padding: 80px 200px 250px 200px;
   background-color: transparent;
   background-size: 50px 50px;
   background-image: radial-gradient(var(--dots) 3%, transparent 0);
 }
 
 .divider {
-  height: 100px;
+  height: 150px;
   display: flex;
   flex: 1;
   position: absolute;
@@ -171,16 +171,17 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
   }
 
   .aboutMe {
+    @extend .flexCenter;
     background-color: var(--about-me);
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
     position: relative;
+
+    .aboutContent {
+      @extend .gridPattern;
+    }
 
     .dividerLine {
       @extend .divider;
-      background-image: -webkit-linear-gradient(274deg, var(--about-me) 50%, var(--skills) 50%);
+      background-image: -webkit-linear-gradient(276deg, var(--about-me) 50%, var(--skills) 50%);
     }
 
     .aboutDesc {
@@ -219,16 +220,18 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
   }
 
   .skills {
+    @extend .flexCenter;
     background-color: var(--skills);
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
     position: relative;
+
+    .skillsContent {
+      @extend .dotPattern;
+      align-self: stretch;
+    }
 
     .dividerLine {
       @extend .divider;
-      background-image: -webkit-linear-gradient(94deg, var(--projects) 50%, var(--skills) 50%);
+      background-image: -webkit-linear-gradient(96deg, var(--projects) 50%, var(--skills) 50%);
     }
 
     .skillBox {
@@ -714,7 +717,7 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
 
     .experienceContent {
       @extend .dotPattern;
-      padding: 0;
+      padding: 0 0 50px 0;
       display: flex;
       flex: 1;
       flex-direction: column;
@@ -875,10 +878,10 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
       display: flex;
       align-self: stretch;
       flex: 1;
-      top: -80px;
+      top: -130px;
       left: 50%;
       transform: translateX(-50%);
-      height: 400px;
+      height: 450px;
       width: 70%;
       border: 0.5px solid var(--exp-line);
     }
@@ -956,6 +959,14 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
 }
 
 @media screen and (max-width: 700px) {
+  .mobileContainer {
+    padding: 10px 20px;
+  }
+
+  .divider {
+    height: 70px;
+  }
+
   .container {
     .tag3 {
       bottom: 35%;
@@ -980,15 +991,32 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
     }
 
     .aboutMe {
-      padding: 10px 20px;
+      .aboutContent {
+        @extend .mobileContainer;
+      }
+
+      .aboutDesc {
+        flex-direction: column;
+
+        .profilePic2 {
+          width: 250px;
+          border-radius: 50%;
+        }
+      }
     }
 
     .skills {
-      padding: 10px 20px;
+      .skillsContent {
+        @extend .mobileContainer;
+      }
 
       .skillBox {
         display: flex;
         flex-direction: column;
+
+        .progressBox {
+          width: 300px;
+        }
 
         .skillProgress {
           margin-top: 50px;
@@ -998,6 +1026,9 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
     }
 
     .projects {
+      .projectsContent {
+        @extend .mobileContainer;
+      }
       .projectsRow {
         width: 300px;
         height: 350px;
