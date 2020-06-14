@@ -286,6 +286,7 @@ const IndexPage = (): JSX.Element => {
       <Head>
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=La+Belle+Aurore" rel="stylesheet" />
+        <title>Bhavish Hak</title>
       </Head>
       {/* <SEO title="bhavish" /> */}
       <ParticleCanvas />
