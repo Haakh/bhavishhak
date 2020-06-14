@@ -329,6 +329,7 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
           justify-content: center;
           align-items: center;
           position: relative;
+          margin-top: 10px;
 
           .skillCircle {
             height: $size;
@@ -387,12 +388,10 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
             }
           }
           .circleContent {
+            @extend .flexCenter;
             position: absolute;
             top: 40px;
             left: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             flex-direction: column;
             width: 100px;
             height: 100px;
@@ -400,17 +399,22 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
             .skillIcon {
               color: var(--text-color);
               fill: var(--text-color);
-              font-size: 22px;
+              font-size: 32px;
               margin-bottom: 5px;
-            }
-            .skillText {
-              color: var(--text-color);
-              font-size: 14px;
             }
             .skillRating {
               color: var(--text-color);
               font-size: 12px;
             }
+          }
+          .skillText {
+            @extend .flexCenter;
+            width: 100px;
+            position: absolute;
+            top: 160px;
+            left: 20px;
+            color: var(--text-color);
+            font-size: 14px;
           }
         }
         .skillCard:hover {

@@ -121,9 +121,9 @@ const Skills = () => (
               </div>
               <div className={styles.circleContent}>
                 <div className={styles.skillIcon}>{skillItem.icon}</div>
-                <div className={styles.skillText}>{`${skillItem.title}`}</div>
                 <div className={styles.skillRating}>{`${skillItem.rating}`}%</div>
               </div>
+              <div className={styles.skillText}>{`${skillItem.title}`}</div>
             </div>
           ))}
         </div>
