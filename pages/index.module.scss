@@ -18,17 +18,6 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
   background-image: radial-gradient(var(--dots) 3%, transparent 0);
 }
 
-.divider {
-  height: 150px;
-  display: flex;
-  flex: 1;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: transparent;
-}
-
 .flexCenter {
   justify-content: center;
   align-items: center;
@@ -174,14 +163,10 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
     @extend .flexCenter;
     background-color: var(--about-me);
     position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 100px));
 
     .aboutContent {
       @extend .gridPattern;
-    }
-
-    .dividerLine {
-      @extend .divider;
-      background-image: -webkit-linear-gradient(276deg, var(--about-me) 50%, var(--skills) 50%);
     }
 
     .aboutDesc {
@@ -205,7 +190,6 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
         }
       }
       .aboutImg {
-        @extend .flexCenter;
         flex-direction: column;
         position: relative;
         border-radius: 50%;
@@ -223,15 +207,12 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
     @extend .flexCenter;
     background-color: var(--skills);
     position: relative;
+    clip-path: polygon(0 0, 100% 100px, 100% 100%, 0 calc(100% - 100px));
+    margin-top: -100px;
 
     .skillsContent {
       @extend .dotPattern;
       align-self: stretch;
-    }
-
-    .dividerLine {
-      @extend .divider;
-      background-image: -webkit-linear-gradient(96deg, var(--projects) 50%, var(--skills) 50%);
     }
 
     .skillBox {
@@ -472,19 +453,13 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
     display: flex;
     flex: 1;
     position: relative;
-
-    .dividerLine {
-      @extend .divider;
-      background-image: -webkit-linear-gradient(86deg, var(--experience) 50%, var(--projects) 50%);
-    }
+    clip-path: polygon(0 0, 100% 100px, 100% calc(100% - 100px), 0 100%);
+    margin-top: -100px;
 
     .projectsContent {
       @extend .gridPattern;
+      @extend .flexCenter;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      display: flex;
-      flex: 1;
     }
 
     .projectsRow {
@@ -709,26 +684,20 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
     align-items: center;
     overflow: hidden;
     position: relative;
-
-    .dividerLine {
-      @extend .divider;
-      background-image: -webkit-linear-gradient(94deg, var(--contacts) 50%, var(--experience) 50%);
-    }
+    clip-path: polygon(0 100px, 100% 0, 100% 100%, 0 100%);
+    margin-top: -100px;
 
     .experienceContent {
       @extend .dotPattern;
-      padding: 0 0 50px 0;
-      display: flex;
-      flex: 1;
+      @extend .flexCenter;
+      padding: 80px 0 50px 0;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
       align-self: stretch;
       position: relative;
     }
     .experienceBox {
       position: absolute;
-      top: 80px;
+      top: 160px;
       left: 50%;
       transform: translateX(-50%);
       border: 0.5px solid var(--exp-line);
@@ -794,11 +763,10 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
     .expContainer::before {
       content: "";
       position: absolute;
-      width: 14px;
-      height: 14px;
-      border-radius: 7px;
+      width: 12px;
+      height: 12px;
       background-color: var(--exp-line);
-      top: 27.5%;
+      top: 28%;
       z-index: 1;
     }
     .left {
@@ -814,7 +782,7 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
       left: -61px;
     }
     .left::before {
-      right: -66px;
+      right: -65px;
     }
     .right::before {
       left: -67px;
@@ -1011,16 +979,74 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
       }
 
       .skillBox {
-        display: flex;
         flex-direction: column;
 
         .progressBox {
-          width: 300px;
+          width: 280px;
+
+          .dev {
+            font-size: 12px;
+            height: 30px;
+          }
+          .dev1 {
+            margin-right: 10px;
+          }
+          .dev2 {
+            margin-right: 10px;
+          }
+          .dev3 {
+            padding-left: 10px;
+          }
+
+          .devAfter {
+            width: 5px;
+            -ms-transform: skew(-10deg, 0deg);
+            -webkit-transform: skew(-10deg, 0deg);
+            transform: skew(-10deg, 0deg);
+          }
+          .devBefore {
+            width: 7px;
+            left: -5px;
+            -ms-transform: skew(-10deg, 0deg);
+            -webkit-transform: skew(-10deg, 0deg);
+            transform: skew(-10deg, 0deg);
+          }
         }
 
+        $size: 80px;
         .skillProgress {
           margin-top: 50px;
           align-self: stretch;
+
+          .skillCard {
+            height: $size;
+            width: $size;
+
+            .skillCircle {
+              height: $size;
+              width: $size;
+              svg > circle {
+                transform: scale(0.4, 0.4);
+              }
+            }
+            .circleContent {
+              top: 1px;
+              left: 5px;
+              width: 40px;
+              height: 40px;
+
+              .skillIcon {
+                font-size: 14px;
+                margin-bottom: 1px;
+              }
+              .skillText {
+                font-size: 12px;
+              }
+              .skillRating {
+                font-size: 10px;
+              }
+            }
+          }
         }
       }
     }
@@ -1030,14 +1056,45 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
         @extend .mobileContainer;
       }
       .projectsRow {
-        width: 300px;
-        height: 350px;
+        width: 280px;
+        height: 300px;
+
+        .projectBox {
+          .projectBack {
+            width: 280px;
+            height: 280px;
+          }
+
+          .projDesc {
+            padding: 6px 6px 2px 10px;
+            color: var(--text-color);
+
+            .projectTech {
+              margin-top: -20px;
+              margin-bottom: -10px;
+
+              h6 {
+                border: 0.5px solid var(--project-tag-border);
+                background-color: var(--project-tag);
+                padding: 2px 5px;
+                margin-right: 3px;
+                border-radius: 15px;
+              }
+            }
+          }
+        }
+        .projectBox,
+        .projectBox:before {
+          width: 280px;
+          height: 300px;
+          margin: 20px;
+        }
       }
     }
 
     .experience {
-      .expDivider {
-        width: 100%;
+      .experienceBox {
+        display: none;
       }
       .timeline {
         width: 100%;
@@ -1047,21 +1104,25 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
       }
       .timeline::after {
         left: 4px;
-        width: 20px;
-        // border: 3px solid yellow;
+        width: 40px;
       }
       /* Full-width containers */
       .expContainer {
-        width: 280px;
+        width: 270px;
+        margin-left: 10px;
+        margin-top: 20px;
         padding-left: 0px;
         padding-right: 0px;
-        border: 2px solid;
       }
       .expContainer::after {
-        width: 60px;
+        width: 36px;
         height: 1px;
         top: 20%;
-        border: 2px solid yellow;
+      }
+      .expContainer::before {
+        width: 12px;
+        height: 12px;
+        top: 5px;
       }
       .left,
       .right {
@@ -1072,17 +1133,20 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
         left: -40px;
       }
 
-      .testTime {
-        border: 2px solid yellow;
+      .timeContainer {
         font-size: 10px;
       }
       .leftTime {
-        left: -13%;
-        top: 4%;
+        left: -16%;
+        top: 3%;
       }
       .rightTime {
-        left: -13%;
-        top: 1%;
+        left: -16%;
+        top: -1%;
+      }
+
+      .content {
+        padding: 0px 15px;
       }
     }
   }

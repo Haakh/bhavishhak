@@ -83,7 +83,6 @@ const AboutMe = () => (
         </div>
       </div>
     </div>
-    <div className={styles.dividerLine} />
   </div>
 );
 
@@ -130,7 +129,6 @@ const Skills = () => (
         </div>
       </div>
     </div>
-    <div className={styles.dividerLine} />
   </div>
 );
 
