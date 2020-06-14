@@ -453,7 +453,7 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
     display: flex;
     flex: 1;
     position: relative;
-    clip-path: polygon(0 0, 100% 100px, 100% calc(100% - 100px), 0 100%);
+    // clip-path: polygon(0 0, 100% 100px, 100% calc(100% - 100px), 0 100%);
     margin-top: -100px;
 
     .projectsContent {
@@ -959,6 +959,7 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
     }
 
     .aboutMe {
+      padding-bottom: 100px;
       .aboutContent {
         @extend .mobileContainer;
       }
@@ -966,6 +967,9 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
       .aboutDesc {
         flex-direction: column;
 
+        .aboutDetails {
+          margin-right: 5px;
+        }
         .profilePic2 {
           width: 250px;
           border-radius: 50%;
@@ -974,6 +978,9 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
     }
 
     .skills {
+      padding-top: 50px;
+      padding-bottom: 100px;
+
       .skillsContent {
         @extend .mobileContainer;
       }
@@ -1052,6 +1059,9 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
     }
 
     .projects {
+      padding-top: 50px;
+      padding-bottom: 100px;
+
       .projectsContent {
         @extend .mobileContainer;
       }
@@ -1096,6 +1106,10 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
       .experienceBox {
         display: none;
       }
+      .expHeader {
+        font-size: 40px;
+        font-weight: 400;
+      }
       .timeline {
         width: 100%;
       }
@@ -1108,21 +1122,22 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
       }
       /* Full-width containers */
       .expContainer {
-        width: 270px;
+        width: 80%;
         margin-left: 10px;
         margin-top: 20px;
         padding-left: 0px;
         padding-right: 0px;
       }
       .expContainer::after {
-        width: 36px;
+        width: 15%;
         height: 1px;
-        top: 20%;
+        top: 40%;
       }
       .expContainer::before {
         width: 12px;
         height: 12px;
-        top: 5px;
+        top: 38%;
+        left: -17%;
       }
       .left,
       .right {
@@ -1130,7 +1145,7 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
       }
       .left::after,
       .right::after {
-        left: -40px;
+        left: -15%;
       }
 
       .timeContainer {
@@ -1138,15 +1153,21 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
       }
       .leftTime {
         left: -16%;
-        top: 3%;
+        top: 18%;
       }
       .rightTime {
         left: -16%;
-        top: -1%;
+        top: 13%;
       }
 
       .content {
         padding: 0px 15px;
+      }
+    }
+
+    .contacts {
+      .contactBox {
+        display: none;
       }
     }
   }
