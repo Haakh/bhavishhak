@@ -293,9 +293,9 @@ const IndexPage = (): JSX.Element => {
     }
     gtag("js", new Date());
 
-    gtag("config", `${process.env.GA_TRACKING_ID}`);
+    gtag("config", `${process.env.NEXT_PUBLIC_GA_TRACKING_ID}`);
     console.log("gtag", gtag);
-    console.log("process.env.GA_TRACKING_ID", process.env.GA_TRACKING_ID);
+    console.log("process.env.NEXT_PUBLIC_GA_TRACKING_ID", process.env.NEXT_PUBLIC_GA_TRACKING_ID);
   };
 
   return (
@@ -303,7 +303,7 @@ const IndexPage = (): JSX.Element => {
       <Head>
         <script
           async
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`}
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACKING_ID}`}
         />
         <script>{injectGA()}</script>
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
