@@ -281,9 +281,27 @@ const IndexPage = (): JSX.Element => {
   //   observer.observe(target);
   // }
 
+  const injectGA = (): any => {
+    if (typeof window == "undefined") {
+      return;
+    }
+    (window as any).dataLayer = (window as any).dataLayer || [];
+    function gtag(x: any, y: any) {
+      (window as any).dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", `${process.env.GA_TRACKING_ID}`);
+  };
+
   return (
     <div className={styles.container} id="root">
       <Head>
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`}
+        />
+        <script>{injectGA()}</script>
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=La+Belle+Aurore" rel="stylesheet" />
         <title>Bhavish Hak</title>
