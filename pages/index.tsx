@@ -282,11 +282,9 @@ const IndexPage = (): JSX.Element => {
   // }
 
   const injectGA = (): any => {
-    console.log("injectGA");
     if (typeof window === "undefined") {
       return;
     }
-    console.log("injectGA IN");
     (window as any).dataLayer = (window as any).dataLayer || [];
     function gtag(x: any, y: any) {
       (window as any).dataLayer.push(arguments);
@@ -294,8 +292,6 @@ const IndexPage = (): JSX.Element => {
     gtag("js", new Date());
 
     gtag("config", `${process.env.NEXT_PUBLIC_GA_TRACKING_ID}`);
-    console.log("gtag", gtag);
-    console.log("process.env.NEXT_PUBLIC_GA_TRACKING_ID", process.env.NEXT_PUBLIC_GA_TRACKING_ID);
   };
 
   return (

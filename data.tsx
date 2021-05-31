@@ -18,8 +18,7 @@ const experiences: ExperienceType[] = [
     designation: "Full Stack Web/App Developer",
     duration: "Feb'19 - Now",
     logoImage: "freelancer",
-    desc: `Self-employed, work for myself, rather than for a company.
-     I take on contract work for companies and organizations usually on hourly basis, based all across the globe. Have developed and delivered multiple mobile and web applications.`,
+    desc: `Self-employed, Worked for startups, enterprise companies to develop and modularize their codebase and improved performance for their softwares. I take on contract work for companies and organizations usually on hourly basis, based all across the globe. Have developed and delivered multiple mobile and web applications.`,
   },
   {
     company: "Gsynergy",
