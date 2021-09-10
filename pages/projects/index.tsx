@@ -6,7 +6,7 @@ import { Projects } from "pages";
 
 const ProjectsPage = (): JSX.Element => {
   return (
-    <div className={styles.container} id="root">
+    <div className={styles.container} id="projects">
       <Head>
         <title>Bhavish Hak | Projects</title>
       </Head>

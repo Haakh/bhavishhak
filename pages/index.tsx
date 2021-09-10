@@ -315,7 +315,7 @@ const IndexPage = (): JSX.Element => {
         <title>Bhavish Hak</title>
       </Head>
       {/* <SEO title="bhavish" /> */}
-      {/* <ParticleCanvas /> */}
+      <ParticleCanvas />
       <div className={styles.background}>
         <Home />
         <Header />

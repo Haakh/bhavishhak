@@ -12,9 +12,9 @@ const ProjectsDetailsPage = (): JSX.Element => {
   if (!pid) return null;
 
   return (
-    <div className={styles.container} id="root">
+    <div className={styles.container} id={`projects/${pid as string}`}>
       <Head>
-        <title>Bhavish Hak | Projects</title>
+        <title>Bhavish Hak | Projects | {data.projects[Number(pid)].title}</title>
       </Head>
 
       <div className={styles.details}>
