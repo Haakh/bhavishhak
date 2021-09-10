@@ -1,5 +1,7 @@
 // import SEO from "../components/seo"
 import React from "react";
+import Link from "next/link";
+
 import { Header, ParticleCanvas } from "components/index";
 import { data, ProjectType } from "../data";
 import {
@@ -68,10 +70,11 @@ const AboutMe = () => (
           <div className={styles.sectionDesc}>
             I am a Full Stack web/mobile application developer with a Bachelors of Engineering in
             Computer Science and I have been working on React/React Native and numerous other
-            technologies such as NodeJS and AWS for 4+ years. I have mostly worked with startups and
-            have been freelancing since last 2 years. I have a strong background in project
-            management and customer relations. I have developed multiple apps from scratch in
-            various domains like healthcare, retail, transport, employee management, etc.
+            technologies such as NodeJS and AWS for 5 years. I have worked with startups as well as
+            large scale enterprises and have been freelancing since last 3 years. I have a strong
+            background in project management and customer relations. I have developed multiple apps
+            from scratch in various domains like healthcare, retail, transport, employee management,
+            etc.
             <p>
               I Started freelancing to work remotely on a diverse set of projects and to explore the
               world.
@@ -121,7 +124,6 @@ const Skills = () => (
               </div>
               <div className={styles.circleContent}>
                 <div className={styles.skillIcon}>{skillItem.icon}</div>
-                <div className={styles.skillRating}>{`${skillItem.rating}`}%</div>
               </div>
               <div className={styles.skillText}>{`${skillItem.title}`}</div>
             </div>
@@ -132,52 +134,58 @@ const Skills = () => (
   </div>
 );
 
-const projectContent = (item: ProjectType) => (
-  <>
-    <div className={styles.imgContainer}>
-      <img src={item.image} className={styles.projectImg} />
-    </div>
-    <div
-      className={styles.projDesc}
-      style={{ cursor: item.link ? "pointer" : undefined }}
-      onClick={() => (item.link ? window.open(item.link) : {})}
-    >
-      <h3>{item.title}</h3>
-      <div className={styles.projectTech}>
-        {item.tech.slice(0, 4).map((tech) => (
-          <h6 key={tech}>{tech}</h6>
-        ))}
+const projectContent = (item: ProjectType, index: number) => (
+  <Link href={`/projects/[pid]`} as={`/projects/${index}`}>
+    <div>
+      <div className={styles.imgContainer}>
+        <img src={item.image} className={styles.projectImg} />
+      </div>
+      <div
+        className={styles.projDesc}
+        style={{ cursor: item.link ? "pointer" : undefined }}
+        // onClick={() => (item.link ? window.open(item.link) : {})}
+      >
+        <h3>{item.title}</h3>
+        <div className={styles.projectTech}>
+          {item.tech.slice(0, 4).map((tech) => (
+            <h6 key={tech}>{tech}</h6>
+          ))}
+        </div>
       </div>
     </div>
-  </>
+  </Link>
 );
 
-const Projects = () => {
+export const Projects = ({ newPage }: { newPage?: boolean }): JSX.Element => {
   const { projects } = data;
   return (
     <div className={styles.projects} id="projects">
       <div className={styles.projectsContent}>
         <div className={styles.sectionHeader}>PROJECTS</div>
         <div className={styles.projectsRow}>
-          {projects.slice(0, 4).map((item) => (
+          {projects.slice(0, newPage ? 11 : 4).map((item, index) => (
             <div className={styles.projectBox} key={item.title}>
               <div className={styles.projectBack}>
                 <div className={`${styles.projectContent} ${styles.projectContentLeft}`}>
-                  {projectContent(item)}
+                  {projectContent(item, index)}
                 </div>
                 <div className={`${styles.projectContent} ${styles.projectContentRight}`}>
-                  {projectContent(item)}
+                  {projectContent(item, index)}
                 </div>
               </div>
             </div>
           ))}
         </div>
-        <div className={styles.flipButton}>
-          <div className={styles.viewMore}>
-            <div className={styles.viewMoreFront}>VIEW MORE</div>
-            <div className={styles.viewMoreBack}>VIEW MORE</div>
-          </div>
-        </div>
+        {!newPage && (
+          <Link href="/projects">
+            <button className={styles.flipButton}>
+              <div className={styles.viewMore}>
+                <div className={styles.viewMoreFront}>VIEW MORE</div>
+                <div className={styles.viewMoreBack}>VIEW MORE</div>
+              </div>
+            </button>
+          </Link>
+        )}
       </div>
       <div className={styles.dividerLine} />
     </div>
@@ -307,7 +315,7 @@ const IndexPage = (): JSX.Element => {
         <title>Bhavish Hak</title>
       </Head>
       {/* <SEO title="bhavish" /> */}
-      <ParticleCanvas />
+      {/* <ParticleCanvas /> */}
       <div className={styles.background}>
         <Home />
         <Header />

@@ -605,6 +605,8 @@ $backgroundGrid: linear-gradient(0deg, transparent 99%, var(--grid-lines) 1%),
     }
 
     .flipButton {
+      background: none;
+      border: none;
       box-sizing: border-box;
       width: 200px;
       height: 60px;
